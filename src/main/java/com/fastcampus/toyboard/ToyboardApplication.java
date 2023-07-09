@@ -8,8 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 @ConfigurationPropertiesScan
 public class ToyboardApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ToyboardApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(ToyboardApplication.class, args);
+  }
 }
