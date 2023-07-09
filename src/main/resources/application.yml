@@ -18,6 +18,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  thymeleaf3:
+    decoupledLogic: true
 ---
 spring:
   config:
