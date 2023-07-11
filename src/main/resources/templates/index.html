@@ -8,12 +8,14 @@
     <!-- ======= Header ======= -->
     <header id="header">
       Header 삽입
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
 
     <main id="main">
-      <!-- ======= Post Grid Section ======= -->
-      <section id="posts" class="posts">
-        <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
+
+        <!-- ======= Post Section ======= -->
+        <section id="posts" class="posts">
           <div class="row g-5 align-content-center">
             <div class="col-lg-4">
               <div class="post-entry-1">
@@ -71,29 +73,48 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- End Post Grid Section -->
-      <!-- Paging -->
-      <div class="container">
-        <div class="row g-5 justify-content-md-center">
-          <div class="col-md-auto">
-            <div class="custom-pagination">
-              <div class="text-start py-4">
-                <a href="#" class="prev">Prevous</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#" class="next">Next</a>
+
+          <!-- 글작성, 신고하기 버튼 -->
+          <div class="row position-relative justify-content-end">
+            <div class="col-md-auto">
+              <div id="new-post-btn" class="col-12">
+                <input type="submit" class="btn btn-primary" value="New Post">
+              </div>
+            </div>
+            <div class="col-md-auto">
+              <div id="report-btn" class="col-12">
+                <input type="submit" class="btn btn-primary" value="Report Post">
               </div>
             </div>
           </div>
-        </div>
+
+        </section>
+        <!-- End Post Section -->
+
+        <!-- Paging -->
+        <section id="paging-section">
+          <div class="row g-5 justify-content-md-center">
+            <div class="col-md-auto">
+              <div class="custom-pagination">
+                <div class="text-start py-4">
+                  <a href="#" class="prev">Prevous</a>
+                  <a href="#" class="active">1</a>
+                  <a href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                  <a href="#">5</a>
+                  <a href="#" class="next">Next</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Paging -->
+
       </div>
-      <!-- End Paging -->
-    </main><!-- End #main -->
+
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
