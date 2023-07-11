@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head id="head">Head 태그 삽입부</head>
+  <head id="head"><title>Head 태그 삽입부</title></head>
 
   <body>
 
@@ -11,41 +11,44 @@
     </header><!-- End Header -->
 
     <main id="main">
-      <!-- ======= Post Grid Section ======= -->
-      <section id="posts" class="posts">
-        <div class="container" data-aos="fade-up">
-          <!-- ======= Comments Form ======= -->
-          <div class="row justify-content-evenly">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-              <div class="row justify-content-evenly">
-                <div class="col-lg-2">
-                  <label for="username">Username</label>
-                </div>
-                <div class="col-lg-5 mb-3 justify-content-end">
-                  <input type="text" class="form-control" id="username" placeholder="Enter your name">
-                </div>
-              </div>
 
-              <div class="row justify-content-evenly">
-                <div class="col-lg-2">
-                  <label for="password">Password</label>
-                </div>
-                <div class="col-lg-5 mb-3 justify-content-end">
-                  <input type="text" class="form-control" id="password" placeholder="Enter your password">
-                </div>
+      <!-- ======= Post Grid Section ======= -->
+      <div class="container p-5" data-aos="fade-up">
+        <!-- ======= Login Form ======= -->
+        <div class="row justify-content-evenly">
+          <div class="col-lg-8 px-5">
+
+            <div class="row justify-content-evenly">
+              <div class="col-lg-2">
+                <label for="username">Username</label>
               </div>
-              <div class="row justify-content-evenly">
-                <div class="col-lg-1 justify-content-end">
-                  <input type="submit" class="btn btn-primary" value="Log in">
-                </div>
+              <div class="col-lg-5 mb-3 justify-content-end">
+                <input type="text" class="form-control" id="username" placeholder="Enter your name">
               </div>
             </div>
-            <div class="col-lg-2"></div>
+
+            <div class="row justify-content-evenly">
+              <div class="col-lg-2">
+                <label for="password">Password</label>
+              </div>
+              <div class="col-lg-5 mb-3 justify-content-end">
+                <input type="text" class="form-control" id="password" placeholder="Enter your password">
+              </div>
+            </div>
+
+            <div class="row justify-content-evenly">
+              <div class="col-lg-1 justify-content-end">
+                <input type="submit" class="btn btn-primary" value="Log in">
+              </div>
+            </div>
+
           </div>
-        </div><!-- End Comments Form -->
-      </section>
-    </main><!-- End #main -->
+        </div>
+      </div>
+      <!-- End Login Form -->
+
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
