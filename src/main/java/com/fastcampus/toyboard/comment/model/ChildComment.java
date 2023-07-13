@@ -1,5 +1,6 @@
 package com.fastcampus.toyboard.comment.model;
 
+import com.fastcampus.toyboard.user.model.User;
 import java.time.LocalDateTime;
 import javax.persistence.*;
 import lombok.Getter;
@@ -20,6 +21,8 @@ public class ChildComment {
   @Column String content;
 
   @ManyToOne Comment comment;
+
+  @ManyToOne User user;
 
   @CreatedDate LocalDateTime createdAt;
 
