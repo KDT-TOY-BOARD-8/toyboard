@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<thlogic>
+  <attr sel="#head" th:replace="common/head :: head"/>
+  <attr sel="#header" th:replace="common/header :: header"/>
+  <attr sel="footer" th:replace="common/footer :: footer"/>
+  <attr sel="#main">
+    <attr sel="#comment-section" th:replace="post/comment :: #comment-content-section"/>
+  </attr>
+</thlogic>

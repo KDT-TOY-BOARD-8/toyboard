@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>ToyBoard Header Template</title>
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="/" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1>ToyBoard - Team 8</h1>
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li class="dropdown px-2">
+              <a href="#">
+                <span>Board</span>
+                <i class="bi bi-chevron-down dropdown-indicator"></i>
+              </a>
+              <ul>
+                <li><a href="#">Newbie</a></li>
+                <li><a href="#">Excellent</a></li>
+              </ul>
+            </li>
+            <li class="px-2"><a href="login">Login</a></li>
+            <li class="px-2"><a href="sign-up">Sign Up</a></li>
+          </ul>
+        </nav>
+        <div class="position-relative">
+          <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+          <!-- ======= Search Form ======= -->
+          <div class="search-form-wrap js-search-form-wrap">
+            <form action="../search-result.html" class="search-form">
+              <span class="icon bi-search"></span>
+              <input type="text" placeholder="Search" class="form-control">
+              <button class="btn js-search-close"><span class="bi-x"></span></button>
+            </form>
+          </div><!-- End Search Form -->
+        </div>
+      </div>
+
+    </header><!-- End Header -->
+  </body>
+
+</html>
