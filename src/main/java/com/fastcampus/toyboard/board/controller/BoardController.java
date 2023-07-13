@@ -1,6 +1,8 @@
 package com.fastcampus.toyboard.board.controller;
 
 import com.fastcampus.toyboard.board.dto.BoardDto;
+import com.fastcampus.toyboard.board.model.Board;
+import com.fastcampus.toyboard.board.model.BoardType;
 import com.fastcampus.toyboard.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/board")
@@ -43,4 +46,21 @@ public class BoardController {
 
         return "redirect:/board/list";
     }
+
+    // 새싹회원 게시판 목록 조회 요청 처리
+    @GetMapping("/sprout")
+    public String showSproutBoardList(Model model) {
+        List<Board> sproutBoards = boardService.getBoardsByCategory(BoardType.SPROUT);
+        model.addAttribute("boards", sproutBoards);
+        return "board/board-list";
+    }
+
+    // 우수회원 게시판 목록 조회 요청 처리
+    @GetMapping("/great")
+    public String showGreatBoardList(Model model) {
+        List<Board> greatBoards = boardService.getBoardsByCategory(BoardType.GREAT);
+        model.addAttribute("boards", greatBoards);
+        return "board/board-list";
+    }
+
 }
