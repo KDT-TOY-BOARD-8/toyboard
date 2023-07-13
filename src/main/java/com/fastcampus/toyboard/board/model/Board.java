@@ -2,7 +2,6 @@ package com.fastcampus.toyboard.board.model;
 
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 public class Board {
@@ -16,13 +15,30 @@ public class Board {
     @Column(columnDefinition = "TEXT",nullable = false )
     private String content;
 
-    @Column(nullable = false)
-    private String author;
+    @Enumerated(EnumType.STRING)
+    private BoardType boardType;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    public String getTitle() {
+        return this.title;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public BoardType getBoardType() {
+        return this.boardType;
+    }
+
+    public void setBoardType(BoardType boardType) {
+        this.boardType = boardType;
+    }
 }
