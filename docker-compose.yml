@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: toyboard_mysql
+    image: mysql/mysql-server:latest
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_USER: "toyboard"
+      MYSQL_PASSWORD: "toyboard8!@"
+      MYSQL_DATABASE: "toyboard"
+    ports:
+      - "3388:3306"
+    command:
+      - "mysqld"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
