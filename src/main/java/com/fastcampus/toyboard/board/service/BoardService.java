@@ -6,6 +6,8 @@ import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.board.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BoardService {
 
@@ -30,5 +32,8 @@ public class BoardService {
         }
 
         boardRepository.save(board);
+    }
+    public List<Board> getBoardsByCategory(BoardType boardType) {
+        return boardRepository.findByBoardType(boardType);
     }
 }
