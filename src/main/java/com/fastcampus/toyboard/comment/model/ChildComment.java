@@ -1,30 +1,22 @@
 package com.fastcampus.toyboard.comment.model;
 
+import com.fastcampus.toyboard.common.BaseTimeEntity;
 import com.fastcampus.toyboard.user.model.User;
-import java.time.LocalDateTime;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity(name = "child_comment")
-@EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @Getter
-public class ChildComment {
+public class ChildComment extends BaseTimeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private Long id;
 
-  @Column String content;
+  @Column private String content;
 
-  @ManyToOne Comment comment;
+  @ManyToOne private Comment comment;
 
-  @ManyToOne User user;
-
-  @CreatedDate LocalDateTime createdAt;
-
-  @LastModifiedDate LocalDateTime updatedAt;
+  @ManyToOne private User user;
 }
