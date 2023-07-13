@@ -1,7 +1,7 @@
 package com.fastcampus.toyboard.comment.model;
 
 import com.fastcampus.toyboard.common.BaseTimeEntity;
-import com.fastcampus.toyboard.user.model.User;
+import com.fastcampus.toyboard.user.domain.User;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
