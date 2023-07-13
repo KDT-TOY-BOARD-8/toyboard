@@ -1,9 +1,14 @@
 package com.fastcampus.toyboard.board.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "board_tb")
+@Getter
+@Setter
 public class Board {
 
     @Id
@@ -18,27 +23,4 @@ public class Board {
     @Enumerated(EnumType.STRING)
     private BoardType boardType;
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public BoardType getBoardType() {
-        return this.boardType;
-    }
-
-    public void setBoardType(BoardType boardType) {
-        this.boardType = boardType;
-    }
 }
