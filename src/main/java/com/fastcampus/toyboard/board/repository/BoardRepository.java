@@ -1,8 +1,11 @@
 package com.fastcampus.toyboard.board.repository;
 
 import com.fastcampus.toyboard.board.model.Board;
+import com.fastcampus.toyboard.board.model.BoardType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BoardRepository extends JpaRepository<Board, Long> {
+import java.util.List;
 
+public interface BoardRepository extends JpaRepository<Board, Long> {
+    List<Board> findByBoardType(BoardType boardType);
 }
