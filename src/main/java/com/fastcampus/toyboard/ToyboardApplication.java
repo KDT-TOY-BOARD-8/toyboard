@@ -2,12 +2,13 @@ package com.fastcampus.toyboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
+@ConfigurationPropertiesScan
 public class ToyboardApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ToyboardApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(ToyboardApplication.class, args);
+  }
 }

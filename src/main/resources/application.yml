@@ -18,6 +18,18 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  thymeleaf3:
+    decoupledLogic: true
+#Live Reload 기능 활성화
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
 ---
 spring:
   config:
