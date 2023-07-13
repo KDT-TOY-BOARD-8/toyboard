@@ -1,6 +1,6 @@
 package com.fastcampus.toyboard.board.model;
 
 public enum BoardType {
-    NEWBIE,
-    EXCELLENT
+    SPROUT, //새싹회원
+    GREAT //우수회원
 }

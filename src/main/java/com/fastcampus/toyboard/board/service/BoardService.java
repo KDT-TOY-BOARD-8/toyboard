@@ -23,10 +23,10 @@ public class BoardService {
         // 게시판에 따라 게시글을 작성
         if (boardDto.getCategory().equalsIgnoreCase("새싹회원")) {
             // 새싹회원 게시판에 작성
-            board.setBoardType(BoardType.NEWBIE);
+            board.setBoardType(BoardType.SPROUT);
         } else if (boardDto.getCategory().equalsIgnoreCase("우수회원")) {
             // 우수회원 게시판에 작성
-            board.setBoardType(BoardType.EXCELLENT);
+            board.setBoardType(BoardType.GREAT);
         }
 
         boardRepository.save(board);
