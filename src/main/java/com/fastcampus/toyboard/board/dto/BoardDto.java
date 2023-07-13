@@ -1,7 +1,12 @@
 package com.fastcampus.toyboard.board.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.NotEmpty;
 
+@Getter
+@Setter
 public class BoardDto {
 
     @NotEmpty(message = "제목을 입력해주세요.")
@@ -12,27 +17,4 @@ public class BoardDto {
 
     private String category;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }
