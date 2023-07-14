@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "child_comment")
+@Entity(name = "child_comment_tb")
 @NoArgsConstructor
 @Getter
 public class ChildComment extends BaseTimeEntity {
@@ -18,5 +18,7 @@ public class ChildComment extends BaseTimeEntity {
 
   @ManyToOne private Comment comment;
 
-  @ManyToOne private User user;
+  @ManyToOne
+  //  @JoinColumn(name="user_id")
+  private User user;
 }
