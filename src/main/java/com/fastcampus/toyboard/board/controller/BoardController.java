@@ -63,4 +63,12 @@ public class BoardController {
         return "board/board-list";
     }
 
+    // 게시글 목록 보기 조회 요쳥 처리
+    @GetMapping("/list")
+    public String showBoardList(Model model) {
+        List<BoardDto> boards = boardService.getAllBoardsDesc();
+        model.addAttribute("boards", boards);
+        return "board/board-list";
+    }
+
 }
