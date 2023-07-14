@@ -5,13 +5,14 @@ import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.board.model.BoardType;
 import com.fastcampus.toyboard.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -65,8 +66,11 @@ public class BoardController {
 
     // 게시글 목록 보기 조회 요쳥 처리
     @GetMapping("/list")
-    public String showBoardList(Model model) {
-        List<BoardDto> boards = boardService.getAllBoardsDesc();
+    public String showBoardList(Model model,
+                                @RequestParam(defaultValue = "0") int page,
+                                @RequestParam(defaultValue = "6") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
+        Page<BoardDto> boards = boardService.getAllBoardsDesc(pageable);
         model.addAttribute("boards", boards);
         return "board/board-list";
     }
