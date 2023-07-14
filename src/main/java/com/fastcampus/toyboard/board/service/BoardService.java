@@ -4,6 +4,8 @@ import com.fastcampus.toyboard.board.model.BoardType;
 import com.fastcampus.toyboard.board.dto.BoardDto;
 import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.board.repository.BoardRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
@@ -39,19 +41,18 @@ public class BoardService {
         return boardRepository.findByBoardType(boardType);
     }
 
-    public List<BoardDto> getAllBoardsDesc() {
+    public Page<BoardDto> getAllBoardsDesc(Pageable pageable) {
         // id 기준으로 내림차순 정렬하여 모든 게시글 가져오기
-        List<Board> boards = boardRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        Page<Board> boards = boardRepository.findAll(pageable);
 
-        // Board 객체 리스트를 BoardDto 객체 리스트로 변환
-        List<BoardDto> boardDtos = new ArrayList<>();
-        for (Board board : boards) {
+        // Board 객체 페이지를 BoardDto 객체 페이지로 변환
+        Page<BoardDto> boardDtos = boards.map(board -> {
             BoardDto boardDto = new BoardDto();
             boardDto.setTitle(board.getTitle());
             boardDto.setContent(board.getContent());
             // TODO: user의 nickName, thumbnail 정보를 가져오고 이를 BoardDto에 설정해야 함
-            boardDtos.add(boardDto);
-        }
+            return boardDto;
+        });
 
         return boardDtos;
     }
