@@ -22,6 +22,12 @@ public class SecurityConfig {
         auth ->
             auth.antMatchers("/", "/login", "/sign-up").permitAll().anyRequest().authenticated());
 
+    http.formLogin()
+        .loginPage("/login")
+        .defaultSuccessUrl("/", false)
+        .and()
+        .logout(logout -> logout.logoutUrl("/logout"));
+
     return http.build();
   }
 }
