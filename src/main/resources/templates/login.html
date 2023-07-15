@@ -18,30 +18,32 @@
         <div class="row justify-content-evenly">
           <div class="col-lg-8 px-5">
 
-            <div class="row justify-content-evenly">
-              <div class="col-lg-2">
-                <label for="username">Username</label>
+            <form id="login-form">
+              <div class="row justify-content-evenly">
+                <div class="col-lg-2">
+                  <label for="username">Username</label>
+                </div>
+                <div class="col-lg-5 mb-3 justify-content-end">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your name">
+                </div>
               </div>
-              <div class="col-lg-5 mb-3 justify-content-end">
-                <input type="text" class="form-control" id="username" placeholder="Enter your name">
-              </div>
-            </div>
 
-            <div class="row justify-content-evenly">
-              <div class="col-lg-2">
-                <label for="password">Password</label>
+              <div class="row justify-content-evenly">
+                <div class="col-lg-2">
+                  <label for="password">Password</label>
+                </div>
+                <div class="col-lg-5 mb-3 justify-content-end">
+                  <input type="text" class="form-control" id="password" name="password"
+                         placeholder="Enter your password">
+                </div>
               </div>
-              <div class="col-lg-5 mb-3 justify-content-end">
-                <input type="text" class="form-control" id="password" placeholder="Enter your password">
-              </div>
-            </div>
 
-            <div class="row justify-content-evenly">
-              <div class="col-lg-1 justify-content-end">
-                <input type="submit" class="btn btn-primary" value="Log in">
+              <div class="row justify-content-evenly">
+                <div class="col-lg-1 justify-content-end">
+                  <input type="submit" class="btn btn-primary" value="Log in">
+                </div>
               </div>
-            </div>
-
+            </form>
           </div>
         </div>
       </div>
