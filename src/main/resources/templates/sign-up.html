@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head id="head">Head 태그 삽입부</head>
+  <head id="head"><title>Head 태그 삽입부</title></head>
 
   <body>
 
@@ -11,10 +11,9 @@
     </header><!-- End Header -->
 
     <main id="main">
-      <!-- ======= Post Grid Section ======= -->
-      <section id="posts" class="posts">
-        <div class="container" data-aos="fade-up">
-          <!-- ======= Comments Form ======= -->
+      <div class="container" data-aos="fade-up">
+
+        <form id="sign-up-form"> <!-- ======= SignUp Form ======= -->
           <div class="row justify-content-evenly">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
@@ -23,7 +22,7 @@
                   <label for="username">Username</label>
                 </div>
                 <div class="col-lg-5 mb-3 justify-content-end">
-                  <input type="text" class="form-control" id="username" placeholder="Enter your name">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your name">
                 </div>
               </div>
 
@@ -32,7 +31,7 @@
                   <label for="password">Password</label>
                 </div>
                 <div class="col-lg-5 mb-3 justify-content-end">
-                  <input type="text" class="form-control" id="password" placeholder="Enter your password">
+                  <input type="text" class="form-control" id="password" name="password" placeholder="Enter your password">
                 </div>
               </div>
 
@@ -41,7 +40,7 @@
                   <label for="email">E-mail</label>
                 </div>
                 <div class="col-lg-5 mb-3">
-                  <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
                 </div>
               </div>
 
@@ -50,7 +49,7 @@
                   <label for="nickname">Nickname</label>
                 </div>
                 <div class="col-lg-5 mb-3">
-                  <input type="text" class="form-control" id="nickname" placeholder="Enter your nickname">
+                  <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter your nickname">
                 </div>
               </div>
 
@@ -62,9 +61,10 @@
             </div>
             <div class="col-lg-2"></div>
           </div>
-        </div><!-- End Comments Form -->
-      </section>
-    </main><!-- End #main -->
+        </form> <!-- End Sign Up Form -->
+
+      </div>
+    </main> <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
