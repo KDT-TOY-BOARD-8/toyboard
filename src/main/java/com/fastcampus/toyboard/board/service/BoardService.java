@@ -41,11 +41,29 @@ public class BoardService {
             BoardDto boardDto = new BoardDto();
             boardDto.setTitle(board.getTitle());
             boardDto.setContent(board.getContent());
+            boardDto.setNickName(board.getNickName());
+            boardDto.setBoardType(board.getBoardType());
             // TODO: user의 nickName, thumbnail 정보를 가져오고 이를 BoardDto에 설정해야 함
             return boardDto;
         });
 
         return boardDtos;
     }
+    public Page<BoardDto> searchBoards(String keyword, Pageable pageable) {
+        // 검색어로 제목, 내용, 닉네임 검색
+        Page<Board> boards = boardRepository.findByTitleContainingOrContentContainingOrNickNameContaining(keyword, keyword, keyword, pageable);
 
+        // Board 객체 페이지를 BoardDto 객체 페이지로 변환
+        Page<BoardDto> boardDtos = boards.map(board -> {
+            BoardDto boardDto = new BoardDto();
+            boardDto.setTitle(board.getTitle());
+            boardDto.setContent(board.getContent());
+            boardDto.setNickName(board.getNickName());
+            boardDto.setBoardType(board.getBoardType());
+            // TODO: user의 nickName, thumbnail 정보를 가져오고 이를 BoardDto에 설정해야 함
+            return boardDto;
+        });
+
+        return boardDtos;
+    }
 }
