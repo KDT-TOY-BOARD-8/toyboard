@@ -1,5 +1,6 @@
 package com.fastcampus.toyboard.board.dto;
 
+import com.fastcampus.toyboard.board.model.BoardType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,5 @@ public class BoardDto {
 
     private String nickName;
 
-    private String category;
-
+    private BoardType boardType; // category 대신 boardType 필드를 사용
 }
