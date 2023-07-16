@@ -67,10 +67,21 @@ public class BoardController {
     // 게시글 목록 보기 조회 요쳥 처리
     @GetMapping("/list")
     public String showBoardList(Model model,
-                                @RequestParam(defaultValue = "0") int page,
+                                @RequestParam(defaultValue = "1") int page,
                                 @RequestParam(defaultValue = "6") int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
+        Pageable pageable = PageRequest.of(page -1 , size, Sort.by(Sort.Direction.DESC, "id"));
         Page<BoardDto> boards = boardService.getAllBoardsDesc(pageable);
+        model.addAttribute("boards", boards);
+        return "board/board-list";
+    }
+
+    // 게시글 검색 요청 처리
+    @GetMapping("/search")
+    public String searchBoards(@RequestParam String keyword, Model model,
+                               @RequestParam(defaultValue = "0") int page,
+                               @RequestParam(defaultValue = "6") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
+        Page<BoardDto> boards = boardService.searchBoards(keyword, pageable);
         model.addAttribute("boards", boards);
         return "board/board-list";
     }
