@@ -66,4 +66,19 @@ public class BoardService {
 
         return boardDtos;
     }
+    public BoardDto getBoard(Long id) {
+        // id를 기준으로 게시글 찾기
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id=" + id));
+
+        // Board 객체를 BoardDto 객체로 변환
+        BoardDto boardDto = new BoardDto();
+        boardDto.setTitle(board.getTitle());
+        boardDto.setContent(board.getContent());
+        boardDto.setNickName(board.getNickName());
+
+        // TODO: board의 comment 객체들을 CommentDto 객체로 변환하여 boardDto에 설정해야 함
+
+        return boardDto;
+    }
 }
