@@ -16,9 +16,13 @@ public class Board {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String title; // 제목
+
+    @Column(nullable = false)
+    private String nickName; // 작성자
+
     @Column(columnDefinition = "TEXT",nullable = false )
-    private String content;
+    private String content; // 내용
 
     @Enumerated(EnumType.STRING)
     private BoardType boardType;
