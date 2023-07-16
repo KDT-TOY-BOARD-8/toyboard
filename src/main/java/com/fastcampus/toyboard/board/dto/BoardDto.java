@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,4 +20,6 @@ public class BoardDto {
     private String nickName;
 
     private BoardType boardType; // category 대신 boardType 필드를 사용
+
+    private List<CommentDto> comments; // 용호님 CommentDto
 }
