@@ -81,7 +81,7 @@ public class BoardService {
 
         return boardDto;
     }
-    public void deleteBoard(Long id, String currentUserNickName) {
+    public void deleteBoard(Long id, String currentUserNickName) { // currentUserNickName : 현재 로그인한 사용자의 닉네임
         // id를 기준으로 게시글 찾기
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id=" + id));
@@ -93,5 +93,22 @@ public class BoardService {
 
         // 게시글 삭제
         boardRepository.deleteById(id);
+    }
+    public void updateBoard(Long id, BoardDto boardDto, String currentUserNickName) {
+        // id를 기준으로 게시글 찾기
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id=" + id));
+
+        // 현재 사용자가 게시글 작성자와 일치하는지 확인
+        if (!board.getNickName().equals(currentUserNickName)) {
+            throw new IllegalArgumentException("게시글을 수정할 권한이 없습니다.");
+        }
+
+        // 게시글 수정
+        board.setTitle(boardDto.getTitle());
+        board.setContent(boardDto.getContent());
+        board.setBoardType(boardDto.getBoardType());
+
+        boardRepository.save(board);
     }
 }
