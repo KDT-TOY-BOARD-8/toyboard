@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/board")
@@ -92,5 +93,14 @@ public class BoardController {
         BoardDto board = boardService.getBoard(id);
         model.addAttribute("board", board);
         return "board/board-detail";
+    }
+
+    // 게시글 삭제 요청 처리
+    @DeleteMapping("/{id}")
+    public String deleteBoard(@PathVariable Long id, Principal principal) {
+        // 게시글 삭제 서비스 메서드 호출
+        boardService.deleteBoard(id, principal.getName());
+
+        return "redirect:/board/list";
     }
 }
