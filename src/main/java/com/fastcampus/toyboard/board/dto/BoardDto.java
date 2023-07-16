@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 public class BoardDto {
+    private Long id;
 
     @NotEmpty(message = "제목을 입력해주세요.")
     private String title;
