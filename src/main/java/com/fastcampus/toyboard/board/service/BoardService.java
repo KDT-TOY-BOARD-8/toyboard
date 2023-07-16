@@ -6,8 +6,6 @@ import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.board.repository.BoardRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,18 +23,11 @@ public class BoardService {
         Board board = new Board();
         board.setTitle(boardDto.getTitle());
         board.setContent(boardDto.getContent());
-
-        // 게시판에 따라 게시글을 작성
-        if (boardDto.getCategory().equalsIgnoreCase("새싹회원")) {
-            // 새싹회원 게시판에 작성
-            board.setBoardType(BoardType.SPROUT);
-        } else if (boardDto.getCategory().equalsIgnoreCase("우수회원")) {
-            // 우수회원 게시판에 작성
-            board.setBoardType(BoardType.GREAT);
-        }
-
+        board.setNickName(boardDto.getNickName());
+        board.setBoardType(boardDto.getBoardType());
         boardRepository.save(board);
     }
+
     public List<Board> getBoardsByCategory(BoardType boardType) {
         return boardRepository.findByBoardType(boardType);
     }
