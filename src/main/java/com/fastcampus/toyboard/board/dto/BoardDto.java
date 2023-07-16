@@ -15,6 +15,8 @@ public class BoardDto {
     @NotEmpty(message = "내용을 입력해주세요.")
     private String content;
 
+    private String nickName;
+
     private String category;
 
 }
