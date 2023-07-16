@@ -103,4 +103,27 @@ public class BoardController {
 
         return "redirect:/board/list";
     }
+    // 게시글 수정 페이지 요청 처리
+    @GetMapping("/{id}/edit")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        BoardDto board = boardService.getBoard(id);
+        model.addAttribute("boardDto", board);
+        return "board/edit-form";
+    }
+
+    // 게시글 수정 요청 처리
+    @PostMapping("/{id}/edit")
+    public String editBoard(@PathVariable Long id,
+                            @ModelAttribute("boardDto") @Valid BoardDto boardDto,
+                            BindingResult bindingResult,
+                            Principal principal) {
+        if (bindingResult.hasErrors()) {
+            return "board/edit-form";
+        }
+
+        // 게시글 수정 서비스 메서드 호출
+        boardService.updateBoard(id, boardDto, principal.getName());
+
+        return "redirect:/board/" + id;
+    }
 }
