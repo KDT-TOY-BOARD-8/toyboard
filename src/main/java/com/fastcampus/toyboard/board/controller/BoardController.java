@@ -86,4 +86,11 @@ public class BoardController {
         return "board/board-list";
     }
 
+    // 게시글 상세보기 요청 처리
+    @GetMapping("/{id}")
+    public String viewBoard(@PathVariable Long id, Model model) {
+        BoardDto board = boardService.getBoard(id);
+        model.addAttribute("board", board);
+        return "board/board-detail";
+    }
 }
