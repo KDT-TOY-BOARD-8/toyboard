@@ -7,7 +7,7 @@ import com.fastcampus.toyboard.report.model.Report;
 import com.fastcampus.toyboard.report.model.ReportType;
 import com.fastcampus.toyboard.report.repository.ReportRepository;
 import org.springframework.stereotype.Service;
-import java.util.stream.Collectors;
+
 
 import java.util.List;
 
