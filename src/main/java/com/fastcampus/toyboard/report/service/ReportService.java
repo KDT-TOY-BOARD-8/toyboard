@@ -9,8 +9,6 @@ import com.fastcampus.toyboard.report.repository.ReportRepository;
 import org.springframework.stereotype.Service;
 
 
-import java.util.List;
-
 @Service
 public class ReportService {
 
@@ -52,14 +50,5 @@ public class ReportService {
         reportRepository.save(report);
     }
 
-    // 신고 목록 조회
-    public List<Report> getAllReports() {
-        return reportRepository.findAll();
-    }
-
-    // 처리되지 않은 신고 목록 조회
-    public List<Report> getUnprocessedReports() {
-        return reportRepository.findByIsProcessedFalse();
-    }
 }
 

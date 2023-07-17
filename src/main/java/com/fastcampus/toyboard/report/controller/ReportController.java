@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.List;
 
 @RestController
 @RequestMapping("/report")
@@ -39,16 +38,5 @@ public class ReportController {
         return "redirect:/report/list";
     }
 
-    // 신고 목록 조회 요청 처리
-    @GetMapping("/list")
-    public List<Report> showReportList() {
-        return reportService.getAllReports();
-    }
-
-    // 처리되지 않은 신고 목록 조회 요청 처리
-    @GetMapping("/list/unprocessed")
-    public List<Report> showUnprocessedReportList() {
-        return reportService.getUnprocessedReports();
-    }
 }
 
