@@ -91,7 +91,7 @@ public class BoardController {
     // 게시글 상세보기 요청 처리
     @GetMapping("/{id}")
     public String viewBoard(@PathVariable Long id, Model model) {
-        BoardDto board = boardService.getBoard(id);
+        BoardDto board = boardService.getBoardDto(id);
         model.addAttribute("board", board);
         model.addAttribute("reportTypes", ReportType.values());
         return "board/board-detail";
@@ -108,7 +108,7 @@ public class BoardController {
     // 게시글 수정 페이지 요청 처리
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model) {
-        BoardDto board = boardService.getBoard(id);
+        BoardDto board = boardService.getBoardDto(id);
         model.addAttribute("boardDto", board);
         return "board/edit-form";
     }
