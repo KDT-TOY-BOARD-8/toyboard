@@ -1,7 +1,6 @@
 package com.fastcampus.toyboard.config.security;
 
 import com.fastcampus.toyboard.user.repository.BoardUserRepository;
-import com.fastcampus.toyboard.user.service.BoardUserManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
