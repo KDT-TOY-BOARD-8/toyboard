@@ -66,7 +66,7 @@ public class BoardService {
 
         return boardDtos;
     }
-    public BoardDto getBoard(Long id) {
+    public BoardDto getBoardDto(Long id) {
         // id를 기준으로 게시글 찾기
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id=" + id));
