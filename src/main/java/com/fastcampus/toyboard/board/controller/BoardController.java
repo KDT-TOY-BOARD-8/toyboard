@@ -4,6 +4,7 @@ import com.fastcampus.toyboard.board.dto.BoardDto;
 import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.board.model.BoardType;
 import com.fastcampus.toyboard.board.service.BoardService;
+import com.fastcampus.toyboard.report.model.ReportType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -92,6 +93,7 @@ public class BoardController {
     public String viewBoard(@PathVariable Long id, Model model) {
         BoardDto board = boardService.getBoard(id);
         model.addAttribute("board", board);
+        model.addAttribute("reportTypes", ReportType.values());
         return "board/board-detail";
     }
 

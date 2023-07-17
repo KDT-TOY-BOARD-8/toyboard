@@ -1,6 +1,7 @@
 package com.fastcampus.toyboard.board.dto;
 
 import com.fastcampus.toyboard.board.model.BoardType;
+import com.fastcampus.toyboard.report.model.ReportType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,4 +24,6 @@ public class BoardDto {
     private BoardType boardType; // category 대신 boardType 필드를 사용
 
     private List<CommentDto> comments; // 용호님 CommentDto
+
+    private ReportType[] reportTypes = ReportType.values();
 }
