@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface ReportRepository extends JpaRepository<Report, Long> {
     List<Report> findByBoardIdAndReporter(Long boardId, String reporter);
+    List<Report> findByIsProcessedFalse();
+    boolean existsByBoardIdAndReporter(Long boardId, String reporter);
 }
 

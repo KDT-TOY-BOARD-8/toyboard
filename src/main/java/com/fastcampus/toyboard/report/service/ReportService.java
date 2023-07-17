@@ -25,8 +25,7 @@ public class ReportService {
     // 신고 생성
     public void createReport(Long boardId, String reporter, ReportType type) {
         // 동일 사용자에 의한 반복 신고 제한
-        List<Report> reports = reportRepository.findByBoardIdAndReporter(boardId, reporter);
-        if (reports.size() > 0) {
+        if (reportRepository.existsByBoardIdAndReporter(boardId, reporter)) {
             throw new IllegalArgumentException("이미 신고한 게시글입니다.");
         }
 
@@ -60,7 +59,7 @@ public class ReportService {
 
     // 처리되지 않은 신고 목록 조회
     public List<Report> getUnprocessedReports() {
-        return reportRepository.findAll().stream().filter(report -> !report.getIsProcessed()).collect(Collectors.toList());
+        return reportRepository.findByIsProcessedFalse();
     }
 }
 
