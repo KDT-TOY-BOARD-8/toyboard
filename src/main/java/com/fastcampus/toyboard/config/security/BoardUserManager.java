@@ -29,11 +29,6 @@ public class BoardUserManager implements AuthenticationManager {
         .findBoardUserByUsername(token.getName())
         .ifPresent(
             user -> {
-              System.out.println(
-                  "Token Password : "
-                      + passwordEncoder.encode(token.getCredentials())
-                      + ", DB Password : "
-                      + user.getPassword());
               if (!passwordEncoder.matches(token.getCredentials(), user.getPassword()))
                 throw new AuthenticationException("Authentication Failed.") {
                   @Override

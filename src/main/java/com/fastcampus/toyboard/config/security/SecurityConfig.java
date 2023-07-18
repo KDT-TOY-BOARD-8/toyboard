@@ -35,30 +35,21 @@ public class SecurityConfig {
 
     http.authorizeHttpRequests(
         auth ->
-            auth.antMatchers(
-                    "/assets",
-                    "/assets/**",
-                    "/css",
-                    "/css/**",
-                    "/img",
-                    "/img/**",
-                    "/js",
-                    "/js/**",
-                    "/vendor",
-                    "/vendor/**",
-                    "/scss",
-                    "/scss/**")
+            auth.antMatchers("/assets", "/assets/**")
                 .permitAll()
                 .antMatchers("/", "/login", "/sign-up")
                 .permitAll()
                 .anyRequest()
                 .authenticated());
 
+    http.formLogin().disable();
+
     http.addFilterAt(
-            new BoardUserAuthenticationFilter(
-                new BoardUserManager(boardUserRepository, passwordEncoder)),
-            UsernamePasswordAuthenticationFilter.class)
-        .formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/", false).permitAll());
+        new BoardUserAuthenticationFilter(
+            new BoardUserManager(boardUserRepository, passwordEncoder)),
+        UsernamePasswordAuthenticationFilter.class);
+    //        .formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/",
+    // false).permitAll());
 
     http.logout(
         logout -> logout.logoutUrl("/logout").deleteCookies("JSESSIONID").logoutSuccessUrl("/"));
