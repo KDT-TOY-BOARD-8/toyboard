@@ -1,5 +1,6 @@
 package com.fastcampus.toyboard.board.controller;
 
+<<<<<<< HEAD
 import com.fastcampus.toyboard.board.dto.BoardDto;
 import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.board.model.BoardType;

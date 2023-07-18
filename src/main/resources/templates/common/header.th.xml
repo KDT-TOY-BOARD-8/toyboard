@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<thlogic>
+  <attr sel="#login-link" sec:authorize="!isAuthenticated()"/>
+  <attr sel="#sign-up-link" sec:authorize="!isAuthenticated()"/>
+  <attr sel="#id-username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"/>
+</thlogic>
