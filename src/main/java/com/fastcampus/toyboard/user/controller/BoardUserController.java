@@ -57,5 +57,11 @@ public class BoardUserController {
         return ResponseEntity.ok(boardUserService.emailOverlap(email));
     }
 
+    @GetMapping("/user/my-info")
+    public BoardUserDto myInfo(@AuthenticationPrincipal BoardUser boardUser) {
+        BoardUserDto boardUserDto = BoardUserDto.fromEntity(boardUser);
+
+        return boardUserDto;
+    }
 
 }
