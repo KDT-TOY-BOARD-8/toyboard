@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequiredArgsConstructor
 public class BoardUserController {
+
   private final BoardUserService boardUserService;
 
   @GetMapping("/login")
@@ -21,7 +22,7 @@ public class BoardUserController {
 
   @PostMapping("/login")
   public String login(
-       BoardUserRequest.LoginDto loginDto) {
+      BoardUserRequest.LoginDto loginDto) {
     System.out.println(
         "Username : " + loginDto.getUsername() + ", Password : " + loginDto.getPassword());
     System.out.println("Login Success.");
@@ -44,6 +45,15 @@ public class BoardUserController {
 
   @GetMapping("/sign-up/{username}/exists")
   public ResponseEntity<Boolean> checkUsernameDuplicate(@PathVariable String username) {
-    return ResponseEntity.ok(boardUserService.usernameOverlap2(username));
+    return ResponseEntity.ok(boardUserService.usernameOverlap(username));
   }
+
+
+  @GetMapping("/sign-up/{email}/exists")
+  public ResponseEntity<Boolean> checkEmailDuplicate(@PathVariable String email) {
+    return ResponseEntity.ok(boardUserService.emailOverlap(email));
+  }
+
+
+
 }
