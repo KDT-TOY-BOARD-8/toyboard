@@ -6,6 +6,8 @@ import com.fastcampus.toyboard.user.model.BoardAuthority;
 import com.fastcampus.toyboard.user.model.BoardUser;
 import com.fastcampus.toyboard.user.repository.BoardAuthorityRepository;
 import com.fastcampus.toyboard.user.repository.BoardUserRepository;
+import com.sun.xml.bind.v2.TODO;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -105,4 +107,35 @@ public class BoardUserService implements UserDetailsService {
               }
             });
   }
+
+    // TODO: 2023/07/18 프론트에 중복체크 버튼 생성해야함. 컨트롤러 연결 어떻게 할까...
+
+
+    public HashMap<String, Object> usernameOverlap(String username) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", boardUserRepository.existsByUsername(username));
+        return map;
+    }
+
+    @Transactional(readOnly = true)
+    public boolean usernameOverlap2(String username) {
+        boolean usernameDuplicate = boardUserRepository.existsByUsername(username);
+        return usernameDuplicate;
+    }
+
+    public HashMap<String, Object> emailOverlap(String email) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", boardUserRepository.existsByEmail(email));
+        return map;
+    }
+
+    public HashMap<String, Object> nicknameOverlap(String nickname) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", boardUserRepository.existsByNickname(nickname));
+        return map;
+    }
+
 }
+
+
+
