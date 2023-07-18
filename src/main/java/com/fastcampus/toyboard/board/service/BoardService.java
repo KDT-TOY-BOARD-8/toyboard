@@ -41,9 +41,9 @@ public class BoardService {
             BoardDto boardDto = new BoardDto();
             boardDto.setTitle(board.getTitle());
             boardDto.setContent(board.getContent());
-            boardDto.setNickName(board.getNickName());
+            boardDto.setNickName(board.getUser().getNickName());
             boardDto.setBoardType(board.getBoardType());
-            // TODO: user의 nickName, thumbnail 정보를 가져오고 이를 BoardDto에 설정해야 함
+
             return boardDto;
         });
 
@@ -58,9 +58,9 @@ public class BoardService {
             BoardDto boardDto = new BoardDto();
             boardDto.setTitle(board.getTitle());
             boardDto.setContent(board.getContent());
-            boardDto.setNickName(board.getNickName());
+            boardDto.setNickName(board.getUser().getNickName());
             boardDto.setBoardType(board.getBoardType());
-            // TODO: user의 nickName, thumbnail 정보를 가져오고 이를 BoardDto에 설정해야 함
+
             return boardDto;
         });
 

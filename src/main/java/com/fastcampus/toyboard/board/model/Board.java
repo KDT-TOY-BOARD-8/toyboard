@@ -1,6 +1,7 @@
 package com.fastcampus.toyboard.board.model;
 
 
+import com.fastcampus.toyboard.user.domain.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,5 +27,8 @@ public class Board {
 
     @Enumerated(EnumType.STRING)
     private BoardType boardType;
+
+    @ManyToOne
+    private User user;
 
 }
