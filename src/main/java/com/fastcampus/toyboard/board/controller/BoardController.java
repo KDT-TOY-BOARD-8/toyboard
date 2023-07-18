@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,6 +52,7 @@ public class BoardController {
     }
 
     // 새싹회원 게시판 목록 조회 요청 처리
+    @PreAuthorize("hasAuthority('SPROUT')")
     @GetMapping("/sprout")
     public String showSproutBoardList(Model model) {
         List<Board> sproutBoards = boardService.getBoardsByCategory(BoardType.SPROUT);
@@ -59,6 +61,7 @@ public class BoardController {
     }
 
     // 우수회원 게시판 목록 조회 요청 처리
+    @PreAuthorize("hasAuthority('GREAT')")
     @GetMapping("/great")
     public String showGreatBoardList(Model model) {
         List<Board> greatBoards = boardService.getBoardsByCategory(BoardType.GREAT);
