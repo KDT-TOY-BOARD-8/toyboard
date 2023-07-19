@@ -160,7 +160,7 @@ public class BoardUserService implements UserDetailsService {
         System.out.println("currentPw : " + currentPw);
         System.out.println("toBePw : " + toBePw);
 
-        System.out.println( " 비번 일치?" + boardUser.matchPassword(passwordEncoder, currentPw));
+        System.out.println(" 비번 일치?" + boardUser.matchPassword(passwordEncoder, currentPw));
 
         if (!boardUser.matchPassword(passwordEncoder, currentPw)) {
             // 예외처리 how?
@@ -179,9 +179,6 @@ public class BoardUserService implements UserDetailsService {
         }
         return null;
     }
-
-
-
 
 
 }
