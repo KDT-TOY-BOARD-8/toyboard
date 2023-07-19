@@ -133,7 +133,7 @@ public class BoardUserService implements UserDetailsService {
 
 
     @Transactional
-    public BoardUserDto editMyInfo(BoardUserRequest.EditDto editDto, BoardUser boardUser) {
+    public BoardUserDto editMyInfo(BoardUserRequest.EditInfoDto editDto, BoardUser boardUser) {
         System.out.println("testEdit : ");
         System.out.println("nickname : " + editDto.getNickname());
         System.out.println("email : " + editDto.getEmail());
@@ -152,6 +152,32 @@ public class BoardUserService implements UserDetailsService {
                     () -> {
                         throw new RuntimeException("Update Error.");
                     }));
+    }
+
+
+    public BoardUserDto editPassword(String currentPw, String toBePw, BoardUser boardUser) {
+        System.out.println("testPasswordEdit : ");
+        System.out.println("currentPw : " + currentPw);
+        System.out.println("toBePw : " + toBePw);
+
+        System.out.println( " 비번 일치?" + boardUser.matchPassword(passwordEncoder, currentPw));
+
+        if (!boardUser.matchPassword(passwordEncoder, currentPw)) {
+            // 예외처리 how?
+
+        } else {
+            boardUser.updatePassword(passwordEncoder, toBePw);
+            boardUserRepository.save(boardUser);
+
+            return BoardUserDto.fromEntity(
+                boardUserRepository
+                    .findBoardUserByUsername(boardUser.getUsername())
+                    .orElseThrow(
+                        () -> {
+                            throw new RuntimeException("Update Error.");
+                        }));
+        }
+        return null;
     }
 
 
