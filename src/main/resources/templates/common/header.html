@@ -10,8 +10,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-        <a href="/" class="logo d-flex align-items-center">
+        <a href="/" class="logo d-flex align-items-center d-inline-block">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <h1>ToyBoard - Team 8</h1>
@@ -25,23 +24,44 @@
                 <i class="bi bi-chevron-down dropdown-indicator"></i>
               </a>
               <ul>
-                <li><a href="#">Newbie</a></li>
-                <li><a href="#">Excellent</a></li>
+                <li><a href="/board/sprout">Sprout</a></li>
+                <li><a href="/board/great">Great</a></li>
               </ul>
             </li>
-            <li id="login-link" class="px-2"><a href="login">Login</a></li>
-            <li id="sign-up-link" class="px-2"><a href="sign-up">Sign Up</a></li>
           </ul>
         </nav>
-        <span id="id-username"></span>
+        <div class="col-md-auto justify-content-end">
+          <div class="col-md-auto">
+            <a id="id-username">
+              <h5></h5>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-auto justify-content-end">
+          <a id="login-link" href="/login">
+            <span class="px-2">Login</span>
+          </a>
+          <a id="sign-up-link" href="/sign-up">
+            <span class="px-2">Sign up</span>
+          </a>
+          <a id="mypage-link" href="/logout">
+            <span class="px-2">My Page</span>
+          </a>
+          <a id="logout-link" href="/logout">
+            <span class="px-2">Logout</span>
+          </a>
+        </div>
+
         <div class="position-relative">
           <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
           <i class="bi bi-list mobile-nav-toggle"></i>
           <!-- ======= Search Form ======= -->
           <div class="search-form-wrap js-search-form-wrap">
-            <form action="../search-result.html" class="search-form">
+            <form action="/search-result" class="search-form">
               <span class="icon bi-search"></span>
-              <input type="text" placeholder="Search" class="form-control">
+              <label for="search-input" hidden>Search</label>
+              <input id="search-input" type="text" placeholder="Search" class="form-control">
               <button class="btn js-search-close"><span class="bi-x"></span></button>
             </form>
           </div><!-- End Search Form -->

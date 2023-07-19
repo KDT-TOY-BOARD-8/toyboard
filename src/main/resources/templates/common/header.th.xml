@@ -2,5 +2,13 @@
 <thlogic>
   <attr sel="#login-link" sec:authorize="!isAuthenticated()"/>
   <attr sel="#sign-up-link" sec:authorize="!isAuthenticated()"/>
-  <attr sel="#id-username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"/>
+  <attr sel="#id-username">
+    <attr sel="h5" sec:authorize="isAuthenticated()" sec:authentication="principal.username"
+          th:text="'Welcome ' + ${#authentication.getPrincipal().getNickname()} +' !'"
+    />
+  </attr>
+  <attr sel="#mypage-link" sec:authorize="isAuthenticated()"
+        th:href="@{'/user/'+${#authentication.getPrincipal().getUserId()}}"
+  />
+  <attr sel="#logout-link" sec:authorize="isAuthenticated()"/>
 </thlogic>
