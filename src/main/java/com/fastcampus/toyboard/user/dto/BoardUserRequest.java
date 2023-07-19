@@ -24,10 +24,15 @@ public class BoardUserRequest {
 
     @AllArgsConstructor
     @Getter
-    public static class EditDto {
-
-        private final String password;
+    public static class EditInfoDto {
         private final String email;
         private final String nickname;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class EditPwDto {
+        private final String currentPw;
+        private final String toBePw;
     }
 }
