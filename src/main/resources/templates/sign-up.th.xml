@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <thlogic>
+  <attr sel="#sign-up-form" th:action="@{/sign-up}" th:method="POST"/>
+
   <attr sel="#head" th:replace="common/head :: head"/>
   <attr sel="#header" th:replace="common/header :: header"/>
   <attr sel="#footer" th:replace="common/footer :: footer"/>
-  <attr sel="#sign-up-form" th:action="@{/sign-up}" th:method="POST"/>
 </thlogic>
