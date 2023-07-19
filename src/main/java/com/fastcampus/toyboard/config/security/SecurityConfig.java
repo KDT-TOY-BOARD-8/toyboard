@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @RequiredArgsConstructor
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
   private final BoardUserRepository boardUserRepository;
@@ -44,7 +44,7 @@ public class SecurityConfig {
         auth ->
             auth.antMatchers("/assets", "/assets/**")
                 .permitAll()
-                .antMatchers("/", "/login", "/sign-up")
+                .antMatchers("/", "/login", "/sign-up", "/login-failed")
                 .permitAll()
                 .antMatchers("/board", "/board/**")
                 .hasAnyAuthority("SPROUT", "GREAT", "ADMIN")

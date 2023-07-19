@@ -39,7 +39,8 @@ public class BoardUserAuthenticationFilter extends UsernamePasswordAuthenticatio
   @Override
   protected void unsuccessfulAuthentication(
       HttpServletRequest request, HttpServletResponse response, AuthenticationException failed)
-      throws IOException, ServletException {
-    super.unsuccessfulAuthentication(request, response, failed);
+      throws IOException {
+    //    super.unsuccessfulAuthentication(request, response, failed);
+    response.sendRedirect("/login-failed");
   }
 }
