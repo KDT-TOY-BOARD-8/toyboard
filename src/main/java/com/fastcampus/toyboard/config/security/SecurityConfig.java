@@ -49,7 +49,7 @@ public class SecurityConfig {
                     "/scss",
                     "/scss/**")
                 .permitAll()
-                .antMatchers("/", "/login", "/sign-up")
+                .antMatchers("/", "/login", "/sign-up", "/sign-up/**", "/user/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated());
