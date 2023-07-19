@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -74,8 +75,25 @@ public class BoardUserController {
 
 
     @PutMapping("/user/edit")
-    public void editMyInfo( BoardUserRequest.EditDto editDto, @AuthenticationPrincipal BoardUser boardUser) {
-        BoardUserDto editUser= boardUserService.editMyInfo(editDto, boardUser);
+    public void editMyInfo(BoardUserRequest.EditInfoDto editDto,
+        @AuthenticationPrincipal BoardUser boardUser) {
+        BoardUserDto editUser = boardUserService.editMyInfo(editDto, boardUser);
         System.out.println(editUser.toString());
     }
+
+
+    @GetMapping("/user/editPw")
+    public String editMyPw() {
+        return "/user/editPw";
+    }
+
+
+    @PutMapping("/user/editPw")
+    public void editMyPw(BoardUserRequest.EditPwDto editPwDto,
+        @AuthenticationPrincipal BoardUser boardUser) {
+        BoardUserDto editUser = boardUserService.editPassword(editPwDto.getCurrentPw(),
+            editPwDto.getToBePw(), boardUser);
+        System.out.println(editUser.toString());
+    }
+
 }
