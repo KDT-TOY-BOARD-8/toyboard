@@ -14,13 +14,20 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     properties:
       hibernate:
         format_sql: true
+    defer-datasource-initialization: true
   thymeleaf3:
     decoupledLogic: true
-#Live Reload 기능 활성화
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+  #Live Reload 기능 활성화
   devtools:
     livereload:
       enabled: true
