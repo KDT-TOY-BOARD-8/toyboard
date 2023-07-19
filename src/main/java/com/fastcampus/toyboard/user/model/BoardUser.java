@@ -92,6 +92,10 @@ public class BoardUser extends BaseTimeEntity implements UserDetails {
     this.nickname = nickname;
   }
 
+  public boolean matchPassword(PasswordEncoder passwordEncoder, String currentPw) {
+    return passwordEncoder.matches(currentPw, getPassword());
+  }
+
   @Override
   public String getPassword() {
     return password;
