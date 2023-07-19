@@ -4,6 +4,7 @@ import com.fastcampus.toyboard.user.dto.BoardUserDto;
 import com.fastcampus.toyboard.user.dto.BoardUserRequest;
 import com.fastcampus.toyboard.user.model.BoardUser;
 import com.fastcampus.toyboard.user.service.BoardUserService;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequiredArgsConstructor
@@ -64,4 +67,15 @@ public class BoardUserController {
         return boardUserDto;
     }
 
+    @GetMapping("/user/edit")
+    public String editMyInfo() {
+        return "/user/edit";
+    }
+
+
+    @PutMapping("/user/edit")
+    public void editMyInfo( BoardUserRequest.EditDto editDto, @AuthenticationPrincipal BoardUser boardUser) {
+        BoardUserDto editUser= boardUserService.editMyInfo(editDto, boardUser);
+        System.out.println(editUser.toString());
+    }
 }
