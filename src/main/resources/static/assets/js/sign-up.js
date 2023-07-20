@@ -54,14 +54,16 @@ function reUsername() {
   $("#username").attr("readonly", false);
 }
 
-
 // 비밀번호 입력 필드 또는 비밀번호 재입력 필드에서 값이 변경될 때 호출하는 함수
 
 function checkPasswordMatch() {
   var pwd1 = $("#password").val();
   var pwd2 = $("#password2").val();
-
-  if (pwd1 === pwd2) {
+  if (pwd1 == "") {
+    alert("비밀번호를 입력해주세요!. 필수항목입니다.");
+    $("#password").focus();
+    return false;
+  } else if (pwd1 === pwd2) {
     password1Check = 1;
 
     $("#alert-success").show();
@@ -73,11 +75,9 @@ function checkPasswordMatch() {
   }
 }
 
-
-$("#password2").on("keyup", function() {
+$("#password2").on("keyup", function () {
   checkPasswordMatch();
 });
-
 
 function emailCheck() {
   const email = $("#email").val();
@@ -104,7 +104,7 @@ function emailCheck() {
         }
         return false;
       } else if (true) {
-      //   여기에 이메일 조건식 넣기
+        //   여기에 이메일 조건식 넣기
       } else if (result.result == 1) {
         alert("이미 사용중인 이메일입니다.");
         $("#email").focus();
@@ -131,7 +131,6 @@ function reEmail() {
 
   $("#email").attr("readonly", false);
 }
-
 
 function nicknameCheck() {
   const nickname = $("#nickname").val();
@@ -191,7 +190,7 @@ function signUp1() {
     alert("아이디 중복체크를 해주세요!");
     $("#username").focus();
     return false;
-  }else if (password1Check == 0) {
+  } else if (password1Check == 0) {
     alert("비밀번호를 일치시켜 주세요!");
     $("#password").focus();
     $("#password2").focus();
@@ -204,8 +203,7 @@ function signUp1() {
     alert("닉네임 중복체크를 해주세요!");
     $("#nickname").focus();
     return false;
-  }
-  else {
+  } else {
     $.ajax({
       type: "post",
       url: "/sign-up",
