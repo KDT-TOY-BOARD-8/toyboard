@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-  <head id="head"><title>Head 태그 삽입부</title></head>
+<head id="head"><title>Head 태그 삽입부</title></head>
 
-  <body>
 
+<body>
     <!-- ======= Header ======= -->
     <header id="header">
       Header 삽입
@@ -16,55 +17,108 @@
           <div class="col-lg-8">
 
             <form id="sign-up-form"> <!-- ======= SignUp Form ======= -->
+
               <div class="row justify-content-evenly">
+
                 <div class="col-lg-2">
-                  <label for="username">Username</label>
+                  <label for="username">Id</label>
                 </div>
-                <div class="col-lg-5 mb-3 justify-content-end">
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your name">
+
+                <div class="col-lg-5 mb-3 justify-content-center">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your Id">
+                  <p></p>
+                  <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay"
+                         onclick="usernameCheck()" value="중복 체크"/>
+                  <input class="btn btn-outline-success btn-sm reType" type="button" id="resetUsername"
+                         onclick="reUsername()" disabled value="다시입력"/>
                 </div>
               </div>
+
+
+
+
 
               <div class="row justify-content-evenly">
                 <div class="col-lg-2">
                   <label for="password">Password</label>
                 </div>
-                <div class="col-lg-5 mb-3 justify-content-end">
-                  <input type="text" class="form-control" id="password" name="password"
-                         placeholder="Enter your password">
+
+                <div class="col-lg-5 mb-3 justify-content-center">
+                  <input type="password" class="form-control" id="password" name="password1" placeholder="Enter your password">
+                  <p></p>
                 </div>
               </div>
 
               <div class="row justify-content-evenly">
+                <div class="col-lg-2">
+                  <label for="password2">Check Password</label>
+                </div>
+
+                <div class="col-lg-5 mb-3 justify-content-center">
+                  <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-Enter your password">
+                  <span id="alert-success" style="display: none;">비밀번호가 일치합니다.</span>
+                  <span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
+                  <p></p>
+                </div>
+              </div>
+
+
+              <div class="row justify-content-evenly">
+
                 <div class="col-lg-2">
                   <label for="email">E-mail</label>
                 </div>
-                <div class="col-lg-5 mb-3">
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+
+                <div class="col-lg-5 mb-3 justify-content-center" id="email_label">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+                  <p></p>
+                  <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="emailOverlay"
+                         onclick="emailCheck()" value="중복 체크"/>
+                  <input class="btn btn-outline-success btn-sm reType" type="button" id="resetEmail"
+                         onclick="reEmail()" disabled value="다시입력"/>
                 </div>
+
               </div>
 
+
               <div class="row justify-content-evenly">
+
                 <div class="col-lg-2">
                   <label for="nickname">Nickname</label>
                 </div>
-                <div class="col-lg-5 mb-3">
-                  <input type="text" class="form-control" id="nickname" name="nickname"
-                         placeholder="Enter your nickname">
+
+                <div class="col-lg-5 mb-3 justify-content-center">
+                  <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter your Nickname">
+                  <p></p>
+                  <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="nicknameOverlay"
+                         onclick="nicknameCheck()" value="중복 체크"/>
+                  <input class="btn btn-outline-success btn-sm reType" type="button" id="resetNickname"
+                         onclick="reNickname()" disabled value="다시입력"/>
+                </div>
+
+              </div>
+
+
+              <div class="row justify-content-evenly">
+                <div class="col-lg-1 justify-content-end">
+                  <input type="button" class="btn btn-primary" value="Sign up" onclick="signUp1()">
                 </div>
               </div>
 
               <div class="row justify-content-evenly">
                 <div class="col-lg-1 justify-content-end">
-                  <input type="submit" class="btn btn-primary" value="sign up">
+
                 </div>
               </div>
+
+
             </form> <!-- End Sign Up Form -->
 
           </div>
         </div>
       </div>
     </main> <!-- End #main -->
+
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -75,14 +129,31 @@
         class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
+
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/sign-up.js"></script>
 
-  </body>
+
+
+    <style>
+      #resetUsername {
+        display: none;
+      }
+      #resetEmail {
+        display: none;
+      }
+      #resetNickname {
+        display: none;
+      }
+    </style>
+
+</body>
 </html>

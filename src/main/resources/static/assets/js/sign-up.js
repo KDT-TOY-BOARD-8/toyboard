@@ -1,3 +1,8 @@
+var usernameOverlapCheck = 0;
+var password1Check = 0;
+var emailOverlapCheck = 0;
+var nicknameOverlapCheck = 0;
+
 function usernameCheck() {
   const username = $("#username").val();
   if (username == "") {
@@ -36,6 +41,7 @@ function usernameCheck() {
 }
 
 function reUsername() {
+  usernameOverlapCheck = 0
   // 입력 필드 초기화
   $("#username").val("");
   // 다시입력 버튼 비활성화
@@ -52,14 +58,16 @@ function reUsername() {
 // 비밀번호 입력 필드 또는 비밀번호 재입력 필드에서 값이 변경될 때 호출하는 함수
 
 function checkPasswordMatch() {
-  var pwd1 = $("#password1").val();
+  var pwd1 = $("#password").val();
   var pwd2 = $("#password2").val();
 
   if (pwd1 === pwd2) {
+    password1Check = 1;
 
     $("#alert-success").show();
     $("#alert-danger").hide();
   } else {
+    password1Check = 0;
     $("#alert-success").hide();
     $("#alert-danger").show();
   }
@@ -87,7 +95,7 @@ function emailCheck() {
     success: function (result) {
       if (result.result == 0) {
         if (confirm("이 이메일은 사용 가능합니다. \n사용하시겠습니까?")) {
-          usernameOverlapCheck = 1;
+          emailOverlapCheck = 1;
           $("#email").attr("readonly", true);
           $("#emailOverlay").attr("disabled", true);
           $("#emailOverlay").css("display", "none");
@@ -111,6 +119,7 @@ function emailCheck() {
 }
 
 function reEmail() {
+  emailOverlapCheck = 0;
   // 입력 필드 초기화
   $("#email").val("");
   // 다시입력 버튼 비활성화
@@ -164,6 +173,7 @@ function nicknameCheck() {
 }
 
 function reNickname() {
+  nicknameOverlapCheck = 0;
   // 입력 필드 초기화
   $("#nickname").val("");
   // 다시입력 버튼 비활성화
@@ -174,4 +184,44 @@ function reNickname() {
   $("#nicknameOverlay").css("display", "inline-block");
 
   $("#nickname").attr("readonly", false);
+}
+
+function signUp1() {
+  if (usernameOverlapCheck == 0) {
+    alert("아이디 중복체크를 해주세요!");
+    $("#username").focus();
+    return false;
+  }else if (password1Check == 0) {
+    alert("비밀번호를 일치시켜 주세요!");
+    $("#password").focus();
+    $("#password2").focus();
+    return false;
+  } else if (emailOverlapCheck == 0) {
+    alert("이메일 중복체크를 해주세요!");
+    $("#email").focus();
+    return false;
+  } else if (nicknameOverlapCheck == 0) {
+    alert("닉네임 중복체크를 해주세요!");
+    $("#nickname").focus();
+    return false;
+  }
+  else {
+    $.ajax({
+      type: "post",
+      url: "/sign-up",
+      data: {
+        "username": $("#username").val(),
+        "password": $("#password").val(),
+        "email": $("#email").val(),
+        "nickname": $("#nickname").val()
+      },
+      dataType: "text"
+    }).done(function (result) {
+      alert($("#username").val() + "회원가입 성공");
+      location.href = "/";
+    }).fail(function (error) {
+      alert(JSON.stringify(error));
+      // alert("code:" + request.status + "\n" + "error :" + error);
+    });
+  }
 }
