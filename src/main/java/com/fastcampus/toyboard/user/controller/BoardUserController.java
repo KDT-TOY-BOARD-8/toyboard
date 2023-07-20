@@ -4,7 +4,7 @@ import com.fastcampus.toyboard.user.dto.BoardUserDto;
 import com.fastcampus.toyboard.user.dto.BoardUserRequest;
 import com.fastcampus.toyboard.user.model.BoardUser;
 import com.fastcampus.toyboard.user.service.BoardUserService;
-import javax.validation.Valid;
+import java.util.HashMap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequiredArgsConstructor
@@ -42,6 +43,12 @@ public class BoardUserController {
         return "sign-up";
     }
 
+    @GetMapping("/sign-up2")
+    public String signUp2() {
+        return "sign-up2";
+    }
+
+
     @PostMapping("/sign-up")
     public String register(BoardUserRequest.SignUpDto signUpDto) {
         System.out.println(boardUserService.signUp(signUpDto));
@@ -51,14 +58,21 @@ public class BoardUserController {
 
 
     @GetMapping("/sign-up/{username}/usernameExists")
-    public ResponseEntity<Boolean> checkUsernameDuplicate(@PathVariable String username) {
-        return ResponseEntity.ok(boardUserService.usernameOverlap(username));
+    @ResponseBody
+    public HashMap<String, Object> checkUsernameDuplicate(
+        @PathVariable("username") String username) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", boardUserService.usernameOverlap(username));
+        return map;
     }
 
 
     @GetMapping("/sign-up/{email}/emailExists")
-    public ResponseEntity<Boolean> checkEmailDuplicate(@PathVariable String email) {
-        return ResponseEntity.ok(boardUserService.emailOverlap(email));
+    @ResponseBody
+    public HashMap<String, Object> checkEmailDuplicate(@PathVariable("email") String email) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", boardUserService.emailOverlap(email));
+        return map;
     }
 
     @GetMapping("/user/my-info")
