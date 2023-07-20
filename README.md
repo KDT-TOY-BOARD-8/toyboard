@@ -187,7 +187,7 @@
  <details>
     <summary><strong>댓글 API</strong> </summary> <img width="801" alt="스크린샷 2023-07-20 오후 8 38 47" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/377cc1c2-fea2-4414-aeaf-92f4ab832e7c"> </details>
  <details>
-    <summary><strong>관리자 API</strong> </summary> <img width="551" alt="스크린샷 2023-07-20 오후 8 39 03" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/8a079e3b-9197-4ba0-8d29-e845e371f7ad"> </details>
+    <summary><strong>관리자 API</strong> </summary> - 노션 스크린샷 첨부 </details>
     
   
 ## 5. 팀원 역할
