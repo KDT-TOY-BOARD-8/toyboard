@@ -181,7 +181,8 @@
 
 ### 4-3. API 설계
 <details>
-    <summary><strong>회원 API</strong> </summary> - 노션 스크린샷첨부 </details>
+    <summary><strong>회원 API</strong> </summary> 
+<img width="547" alt="스크린샷 2023-07-20 오후 9 05 35" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/bd5c7c5a-a71f-4105-b52c-80e7a04a3b15"> </details>
 <details>
     <summary><strong>게시판 API</strong> </summary> <img width="500" alt="스크린샷 2023-07-20 오후 8 38 14" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/ebc00e10-ce46-403b-87a0-a11b8fe48473"> </details>
  <details>
