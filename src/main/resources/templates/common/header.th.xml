@@ -2,5 +2,7 @@
 <thlogic>
   <attr sel="#login-link" sec:authorize="!isAuthenticated()"/>
   <attr sel="#sign-up-link" sec:authorize="!isAuthenticated()"/>
+  <attr sel="#my-info-link" sec:authorize="isAuthenticated()"/>
+  <attr sel="#logout-link" sec:authorize="isAuthenticated()"/>
   <attr sel="#id-username" sec:authorize="isAuthenticated()" sec:authentication="principal.username"/>
 </thlogic>
