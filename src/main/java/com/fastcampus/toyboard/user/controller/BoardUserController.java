@@ -50,10 +50,9 @@ public class BoardUserController {
 
 
     @PostMapping("/sign-up")
-    public String register(BoardUserRequest.SignUpDto signUpDto) {
-        System.out.println(boardUserService.signUp(signUpDto));
-
-        return "redirect:/";
+    @ResponseBody
+    public void register(BoardUserRequest.SignUpDto signUpDto) {
+        boardUserService.signUp(signUpDto);
     }
 
 
@@ -74,6 +73,16 @@ public class BoardUserController {
         map.put("result", boardUserService.emailOverlap(email));
         return map;
     }
+
+    @GetMapping("/sign-up/{nickname}/nicknameExists")
+    @ResponseBody
+    public HashMap<String, Object> checkNicknameDuplicate(
+        @PathVariable("nickname") String nickname) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", boardUserService.nicknameOverlap(nickname));
+        return map;
+    }
+
 
     @GetMapping("/user/my-info")
     public BoardUserDto myInfo(@AuthenticationPrincipal BoardUser boardUser) {
