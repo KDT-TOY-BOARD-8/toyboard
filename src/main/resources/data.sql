@@ -66,18 +66,22 @@ values (now(), now(), 1, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv
 
 insert into comment_tb
     (comment_id, created_at, updated_at, content, board_id, user_id)
-values (1, now(), now(), 'comment_test', '30', '1'),
-       (2, now(), now(), 'comment_test', '30', '1'),
-       (3, now(), now(), 'comment_test', '30', '1'),
-       (4, now(), now(), 'comment_test', '30', '1'),
-       (5, now(), now(), 'comment_test', '30', '1')
+values (1, now(), now(), 'comment_test111', '30', '1'),
+       (2, now(), now(), 'comment_test2222', '30', '1'),
+       (3, now(), now(), 'comment_test33333', '30', '1'),
+       (4, now(), now(), 'comment_test44', '30', '1'),
+       (5, now(), now(), 'comment_test55555', '30', '2'),
+       (6, now(), now(), 'comment_test2222', '30', '1'),
+       (7, now(), now(), 'comment_test33333', '30', '2'),
+       (8, now(), now(), 'comment_test44', '30', '1'),
+       (9, now(), now(), 'comment_test55555', '30', '2')
 ;
 
 insert into child_comment_tb (child_comment_id, created_at, updated_at, content, comment_id, user_id)
-values (1, now(), now(), 'child_comment_test', 3, '1'),
-       (2, now(), now(), 'child_comment_test', 3, '1'),
-       (3, now(), now(), 'child_comment_test', 2, '1'),
-       (4, now(), now(), 'child_comment_test', 2, '1'),
-       (5, now(), now(), 'child_comment_test', 3, '1'),
-       (6, now(), now(), 'child_comment_test', 3, '1')
+values (1, now(), now(), 'child_comment_test111', 3, '2'),
+       (2, now(), now(), 'child_comment_test222', 3, '1'),
+       (3, now(), now(), 'child_comment_test3333', 2, '1'),
+       (4, now(), now(), 'child_comment_test44', 2, '2'),
+       (5, now(), now(), 'child_comment_test55555', 3, '1'),
+       (6, now(), now(), 'child_comment_test66', 3, '2')
 ;
