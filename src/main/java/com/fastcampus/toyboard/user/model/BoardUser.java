@@ -8,6 +8,7 @@ import com.fastcampus.toyboard.user.dto.BoardUserDto;
 import com.fastcampus.toyboard.user.dto.BoardUserRequest;
 import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -76,6 +77,23 @@ public class BoardUser extends BaseTimeEntity implements UserDetails {
         signUpDto.getPassword(),
         signUpDto.getEmail(),
         signUpDto.getNickname());
+  }
+
+  // 정보 수정
+  public void updatePassword(PasswordEncoder passwordEncoder, String password) {
+    this.password = passwordEncoder.encode(password);
+  }
+
+  public void updateEmail(String email) {
+    this.email = email;
+  }
+
+  public void updateNickname(String nickname) {
+    this.nickname = nickname;
+  }
+
+  public boolean matchPassword(PasswordEncoder passwordEncoder, String currentPw) {
+    return passwordEncoder.matches(currentPw, getPassword());
   }
 
   @Override

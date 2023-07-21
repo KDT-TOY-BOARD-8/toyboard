@@ -47,7 +47,7 @@ public class SecurityConfig {
                 .permitAll()
                 .antMatchers("/", "/login", "/sign-up", "/login-failed")
                 .permitAll()
-                .antMatchers("/board", "/board/**")
+                .antMatchers("/board", "/board/**", "/user","/user/**")
                 .hasAnyAuthority("SPROUT", "GREAT", "ADMIN")
                 .anyRequest()
                 .authenticated());

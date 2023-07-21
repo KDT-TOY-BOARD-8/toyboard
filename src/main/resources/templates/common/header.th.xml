@@ -7,8 +7,6 @@
           th:text="'Welcome ' + ${#authentication.getPrincipal().getNickname()} +' !'"
     />
   </attr>
-  <attr sel="#mypage-link" sec:authorize="isAuthenticated()"
-        th:href="@{'/user/'+${#authentication.getPrincipal().getUserId()}}"
-  />
+  <attr sel="#my-info-link" sec:authorize="isAuthenticated()"/>
   <attr sel="#logout-link" sec:authorize="isAuthenticated()"/>
 </thlogic>
