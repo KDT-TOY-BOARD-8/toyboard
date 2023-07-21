@@ -37,6 +37,10 @@ spring:
   web:
     resources:
       static-locations: file:src/main/resources/static/
+server:
+  error:
+    whitelabel:
+      enabled: false
 ---
 spring:
   config:
