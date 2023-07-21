@@ -43,11 +43,6 @@ public class BoardUserController {
         return "sign-up";
     }
 
-    @GetMapping("/sign-up2")
-    public String signUp2() {
-        return "sign-up2";
-    }
-
 
     @PostMapping("/sign-up")
     @ResponseBody
@@ -87,13 +82,14 @@ public class BoardUserController {
     @GetMapping("/user/my-info")
     public BoardUserDto myInfo(@AuthenticationPrincipal BoardUser boardUser) {
         BoardUserDto boardUserDto = BoardUserDto.fromEntity(boardUser);
-
         return boardUserDto;
     }
 
     @GetMapping("/user/edit")
-    public String editMyInfo() {
-        return "/user/edit";
+    @ResponseBody
+    public BoardUserDto editMyInfo(@AuthenticationPrincipal BoardUser boardUser) {
+        BoardUserDto boardUserDto = BoardUserDto.fromEntity(boardUser);
+        return boardUserDto;
     }
 
 
