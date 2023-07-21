@@ -23,7 +23,7 @@
 
       <div class="row justify-content-evenly">
         <div class="col-lg-2">
-          <label th:for="username">Id</label>
+          <label th:for="username">Id : </label>
           <div class="col-lg-5 mb-3 justify-content-center" id="username"
                th:text="${boardUserDto.username}"></div>
         </div>
@@ -32,7 +32,7 @@
 
       <div class="row justify-content-evenly">
         <div class="col-lg-2">
-          <label th:for="nickname">Nickname</label>
+          <label th:for="nickname">Nickname : </label>
           <div class="col-lg-5 mb-3 justify-content-center" id="nickname"
                th:text="${boardUserDto.nickname}"></div>
         </div>
@@ -40,7 +40,7 @@
 
       <div class="row justify-content-evenly">
         <div class="col-lg-2">
-          <label th:for="email">E-mail</label>
+          <label th:for="email">E-mail : </label>
           <div class="col-lg-5 mb-3 justify-content-center" id="email"
                th:text="${boardUserDto.email}"></div>
         </div>
@@ -49,7 +49,7 @@
 
       <div class="row justify-content-evenly">
         <div class="col-lg-2">
-          <label th:for="authorities">Authorities</label>
+          <label th:for="authorities">Authorities : </label>
           <div class="col-lg-5 mb-3 justify-content-center" id="authorities"
                th:text="${boardUserDto.authorities}"></div>
         </div>
@@ -58,6 +58,7 @@
 
       <div class="row justify-content-evenly">
         <input type="button" class="btn btn-primary" value="Edit My Info" onclick="location.href='/user/edit'">
+        <p></p>
         <input type="button" class="btn btn-primary" value="Edit My Password" onclick="location.href='/user/editPw'">
       </div>
 
@@ -80,14 +81,15 @@
     class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
+
 
 
 </body>
