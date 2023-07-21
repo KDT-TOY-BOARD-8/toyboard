@@ -85,15 +85,21 @@ public class BoardUserController {
         return boardUserDto;
     }
 
-    @GetMapping("/user/edit")
+    @GetMapping("/user/edit2")
     @ResponseBody
-    public BoardUserDto editMyInfo(@AuthenticationPrincipal BoardUser boardUser) {
+    public BoardUserDto editMyInfo2(@AuthenticationPrincipal BoardUser boardUser) {
         BoardUserDto boardUserDto = BoardUserDto.fromEntity(boardUser);
         return boardUserDto;
     }
 
+    @GetMapping("/user/edit")
+    public String editMyInfo() {
+        return "user/edit";
+    }
+
 
     @PutMapping("/user/edit")
+    @ResponseBody
     public void editMyInfo(BoardUserRequest.EditInfoDto editDto,
         @AuthenticationPrincipal BoardUser boardUser) {
         BoardUserDto editUser = boardUserService.editMyInfo(editDto, boardUser);
@@ -108,6 +114,7 @@ public class BoardUserController {
 
 
     @PutMapping("/user/editPw")
+    @ResponseBody
     public void editMyPw(BoardUserRequest.EditPwDto editPwDto,
         @AuthenticationPrincipal BoardUser boardUser) {
         BoardUserDto editUser = boardUserService.editPassword(editPwDto.getCurrentPw(),
