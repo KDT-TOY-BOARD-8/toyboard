@@ -45,10 +45,16 @@ function editPw() {
     }).done(function (result) {
       alert("비밀번호 수정 성공");
       location.href = "/logout";
-    }).fail(function (error) {
-      alert(JSON.stringify(error));
+    }).fail(function (jqXHR, textStatus) {
+      alert('비밀번호 수정실패');
+      if (jqXHR.status == 500) {
+        alert("기존 비밀번호를 확인해주세요.")
+      }
+      console.log(jqXHR.status);
+      return false;
       // alert("code:" + request.status + "\n" + "error :" + error);
     });
+    return false;
   }
 
 }
