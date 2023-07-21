@@ -103,9 +103,7 @@ function emailCheck() {
           $("#resetEmail").css("display", "inline-block");
         }
         return false;
-      } else if (true) {
-        //   여기에 이메일 조건식 넣기
-      } else if (result.result == 1) {
+      }else if (result.result == 1) {
         alert("이미 사용중인 이메일입니다.");
         $("#email").focus();
       } else {
@@ -156,8 +154,6 @@ function nicknameCheck() {
           $("#resetNickname").css("display", "inline-block");
         }
         return false;
-      } else if (true) {
-        //   여기에 이메일 조건식 넣기
       } else if (result.result == 1) {
         alert("이미 사용중인 닉네임입니다.");
         $("#nickname").focus();
