@@ -17,33 +17,33 @@
 
         <div class="col-lg-8">
           <h3 class="py-2">Report</h3>
-          <form>
+          <form id="report-form">
             <div class="row justify-content-start p-2">
               <div class="col-lg-1">
                 <label for="reason">Reason</label>
               </div>
               <div class="col">
                 <select id="reason" name="cars">
-                  <option value="abuse">Abuse (욕설)</option>
-                  <option value="lewdness">Lewdness (음란)</option>
-                  <option value="calumny">Calumny (비방)</option>
+                  <option value="PROFANITY">Profanity (욕설)</option>
+                  <option value="PORNOGRAPHY">Pornography (음란)</option>
+                  <option value="DEFAMATION">Defamation (비방)</option>
                 </select>
               </div>
             </div>
+<!--            <div class="row justify-content-start p-2">-->
+<!--              <div class="col-lg-1">-->
+<!--                <label for="evidence">Evidence</label>-->
+<!--              </div>-->
+<!--              <div class="col">-->
+<!--                <input type="file" id="evidence" name="evidence">-->
+<!--              </div>-->
+<!--            </div>-->
             <div class="row justify-content-start p-2">
               <div class="col-lg-1">
-                <label for="evidence">Evidence</label>
+                <label for="detail">Detail Reason</label>
               </div>
               <div class="col">
-                <input type="file" id="evidence" name="evidence">
-              </div>
-            </div>
-            <div class="row justify-content-start p-2">
-              <div class="col-lg-1">
-                <label for="detail-reason">Detail Reason</label>
-              </div>
-              <div class="col">
-                  <textarea class="form-control" id="detail-reason" placeholder="Enter text" cols="30"
+                  <textarea class="form-control" id="detail" name="detail" placeholder="Enter text" cols="30"
                             rows="10"></textarea>
               </div>
             </div>

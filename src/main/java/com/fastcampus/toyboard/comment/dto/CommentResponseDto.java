@@ -17,7 +17,7 @@ public class CommentResponseDto {
   private Long boardId;
   private String nickname;
 
-  private List<ChildCommentResponseDto> childCommentDtos;
+  private List<ChildCommentResponse> childCommentDtos;
 
   public static CommentResponseDto of(Long id, String content, Long boardId, String nickName) {
     return new CommentResponseDto(id, content, boardId, nickName, null);
@@ -30,7 +30,7 @@ public class CommentResponseDto {
         commentDto.getBoardDto().getBoardId(),
         commentDto.getBoardUserDto().getNickname(),
         commentDto.getChildCommentDtos().stream()
-            .map(ChildCommentResponseDto::of)
+            .map(ChildCommentResponse::of)
             .collect(Collectors.toList()));
   }
 }

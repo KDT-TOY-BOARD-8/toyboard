@@ -4,39 +4,32 @@ import com.fastcampus.toyboard.board.service.BoardService;
 import com.fastcampus.toyboard.report.model.Report;
 import com.fastcampus.toyboard.report.model.ReportType;
 import com.fastcampus.toyboard.report.service.ReportService;
+import com.fastcampus.toyboard.user.model.BoardUser;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/report")
+@RequiredArgsConstructor
 public class ReportController {
+  private final ReportService reportService;
 
-    private final BoardService boardService;
-    private final ReportService reportService;
+  @GetMapping("/board/{boardId}/report")
+  public String report(@PathVariable Long boardId, ModelMap map) {
+    return "board/report";
+  }
 
-    @Autowired
-    public ReportController(BoardService boardService, ReportService reportService) {
-        this.boardService = boardService;
-        this.reportService = reportService;
-    }
-
-    // 신고 생성 요청 처리
-    @PostMapping("/{boardId}")
-    public String reportBoard(@PathVariable Long boardId,
-                              @RequestParam ReportType type,
-                              Principal principal) {
-        reportService.createReport(boardId, principal.getName(), type);
-        return "redirect:/board/" + boardId;
-    }
-
-    // 신고 확인 요청 처리
-    @PostMapping("/{reportId}/check")
-    public String checkReport(@PathVariable Long reportId) {
-        reportService.checkReport(reportId);
-        return "redirect:/report/list";
-    }
-
+  // 신고 생성 요청 처리
+  @PostMapping("/board/{boardId}/report")
+  public String reportBoard(
+      @PathVariable Long boardId,
+      @RequestParam ReportType type,
+      @AuthenticationPrincipal BoardUser boardUser) {
+    reportService.createReport(boardId, boardUser.getNickname(), type);
+    return "redirect:/board/" + boardId;
+  }
 }
-

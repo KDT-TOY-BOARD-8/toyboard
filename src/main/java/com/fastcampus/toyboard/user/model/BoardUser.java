@@ -22,7 +22,7 @@ import org.springframework.security.core.userdetails.UserDetails;
     })
 public class BoardUser extends BaseTimeEntity implements UserDetails {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long userId;
 
   @Column(nullable = false, unique = true)
@@ -76,16 +76,6 @@ public class BoardUser extends BaseTimeEntity implements UserDetails {
         signUpDto.getPassword(),
         signUpDto.getEmail(),
         signUpDto.getNickname());
-  }
-
-  @Override
-  public String getPassword() {
-    return password;
-  }
-
-  @Override
-  public String getUsername() {
-    return username;
   }
 
   @Override

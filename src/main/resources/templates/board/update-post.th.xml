@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<thlogic>
+  <attr sel="#main" th:object="${board}">
+    <attr sel="#board-form" th:action="@{'/board/'+${board.boardId}+'/edit'}" th:method="PUT">
+      <attr sel="#title" th:value="${board.title}"/>
+      <attr sel="#content" th:text="${board.content}"/>
+    </attr>
+  </attr>
+
+  <attr sel="#head" th:replace="common/head :: head"/>
+  <attr sel="#header" th:replace="common/header :: header"/>
+  <attr sel="#footer" th:replace="common/footer :: footer"/>
+</thlogic>

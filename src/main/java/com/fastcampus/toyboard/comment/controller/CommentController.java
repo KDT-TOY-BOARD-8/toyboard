@@ -2,35 +2,36 @@ package com.fastcampus.toyboard.comment.controller;
 
 import com.fastcampus.toyboard.comment.dto.CommentRequestDto;
 import com.fastcampus.toyboard.comment.service.CommentService;
+import com.fastcampus.toyboard.user.model.BoardUser;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/comments")
 @RequiredArgsConstructor
 public class CommentController {
   private final CommentService commentService;
 
-  @PostMapping("/new")
+  @PostMapping("/board/{boardId}/comment/new")
   public String postNewComment(
-      //      @AuthenticationPrincipal BoardPrincipal boardPrincipal,
+      @AuthenticationPrincipal BoardUser boardUser,
+      @PathVariable Long boardId,
       CommentRequestDto commentRequestDto) {
-    //    commentService.saveComment(CommentRequest.toDto(boardPrincipal.toDto()));
+    System.out.println(commentRequestDto.getCommentContent());
 
-    // TODO - 수현님 작업 결과에 맞춰서 수정
-    return "redirect:/board/";
-    //           + CommentRequest.boardId();
+    commentService.saveComment(boardId, boardUser.getUserId(), commentRequestDto);
+
+    return "redirect:/board/" + boardId;
   }
 
-  @PostMapping("/{commentId}/delete")
+  @DeleteMapping("/board/{boardId}/comment/{commentId}")
   public String deleteComment(
+      @PathVariable Long boardId,
       @PathVariable Long commentId,
-      //      @AuthenticationPrincipal BoardPrincipal boardPrincipal,
-      Long articleId) {
-    //    commentService.deleteComment(commentId, boardPrincipal.getUsername());
+      @AuthenticationPrincipal BoardUser boardUser) {
+    commentService.deleteCommentByBoardIdByCommentId(commentId, boardUser.getUserId());
 
-    return "redirect:/board/";
-    //    + articleId;
+    return "redirect:/board/" + boardId;
   }
 }

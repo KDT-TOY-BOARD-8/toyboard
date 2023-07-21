@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
+@Transactional
 public class BoardUserService implements UserDetailsService {
   private final BoardUserRepository boardUserRepository;
   private final BoardAuthorityRepository boardAuthorityRepository;

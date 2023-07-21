@@ -1,9 +1,71 @@
 <?xml version="1.0"?>
 <thlogic>
+  <attr sel="#main" th:object="${board}">
+    <attr sel="#writer" th:text="${board.nickname}"/>
+    <attr sel="#created-at" th:text="${board.createdAt}"/>
+    <attr sel="#title" th:text="${board.title}"/>
+    <attr sel="#board-content" th:text="${board.content}"/>
+
+    <attr sel="#comment-section">
+      <attr sel="#comment-total" th:if="${!comments.isEmpty}" th:text="${comments.size} + ' Comments'"/>
+      <attr sel="#all-comments-row" th:if="${!comments.isEmpty}" th:remove="'all-but-first'">
+        <attr sel="li[0]" th:each="comment : ${comments}">
+          <attr sel="div.comment-body">
+            <attr sel="div.comment-meta/h6" th:text="${comment.nickname}"/>
+            <attr sel="div.comment-content" th:text="${comment.content}"/>
+
+            <!-- 댓글 삭제 버튼 -->
+            <attr sel=".delete-comment-btn" sec:authorize="isAuthenticated()"
+                  th:if="${#authentication.getPrincipal().getNickname()} == ${comment.nickname}"
+                  th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId}}" th:method="DELETE"/>
+
+            <attr sel="#child-comment-form" sec:authorize="isAuthenticated()"
+                  th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId} + '/child-comment/new'}"
+                  th:method="POST"/>
+
+            <attr sel="div.children-comment" th:if="${!comment.childComments.isEmpty}">
+              <attr sel="h6" th:text="${comment.childComments.size + ' Replies'}"/>
+              <attr sel="#children-comment-list" th:if="${!comment.childComments.isEmpty}" th:remove="all-but-first">
+                <!--                <attr sel="li[0]" th:if="${!comment.childComments.isEmpty and childComment != null}"-->
+                <!--                      th:each="childComment : ${comment.getChildComments()}">-->
+                <!--                  <attr sel="h6.children-comment-nickname" th:text="${childCommentStat.current}"/>-->
+                <!--                  <attr sel="span.text-muted" th:text="''"/>-->
+                <!--                  <attr sel="span.children-comment-content" th:text="${childCommentStat.index}"/>-->
+                <!--                  &lt;!&ndash; 대댓글 삭제 버튼 &ndash;&gt;-->
+                <!--                  <attr sel="#delete-child-comment-btn" sec:authorize="isAuthenticated()"-->
+                <!--                        th:if="${#authentication.getPrincipal().getNickname()} == ${board.nickname}"-->
+                <!--                        th:action="@{'/board/'+${board.boardId} +'/comment/' + ${comment.commentId} + '/child-comment/'}"-->
+                <!--                        th:method="DELETE"/>-->
+                <!--                </attr>-->
+              </attr>
+            </attr>
+          </attr>
+
+
+        </attr>
+      </attr>
+    </attr>
+  </attr>
+
+  <!-- 게시글 신고 페이지 버튼 -->
+  <attr sel="#report-post-btn" sec:authorize="isAuthenticated()"
+        th:href="@{'/board/'+ ${board.boardId} + '/report'}"/>
+
+  <!-- 게시글 수정 페이지 버튼 -->
+  <attr sel="#update-post-btn" sec:authorize="isAuthenticated()"
+        th:href="@{'/board/'+ ${board.boardId} + '/edit'}"/>
+
+  <!-- 게시글 삭제 버튼 -->
+  <attr sel="#delete-post-btn" sec:authorize="isAuthenticated()"
+        th:if="${#authentication.getPrincipal().getNickname()} == ${board.nickname}"
+        th:action="@{'/board/'+${board.boardId}}" th:method="DELETE"/>
+
+  <!-- 댓글 작성 버튼 -->
+  <attr sel="#post-comment-form" sec:authorize="isAuthenticated()"
+        th:action="@{'/board/'+ ${board.boardId} + '/comment/new'}" th:method="POST"/>
+
+  <!--  Common Fragments -->
   <attr sel="#head" th:replace="common/head :: head"/>
   <attr sel="#header" th:replace="common/header :: header"/>
   <attr sel="#footer" th:replace="common/footer :: footer"/>
-  <attr sel="#main">
-    <attr sel="#comment-section" th:replace="board/comment :: #comment-content-section"/>
-  </attr>
 </thlogic>

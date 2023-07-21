@@ -1,29 +1,56 @@
 package com.fastcampus.toyboard.board.dto;
 
-import com.fastcampus.toyboard.board.model.BoardType;
-import com.fastcampus.toyboard.report.model.ReportType;
+import com.fastcampus.toyboard.board.model.Board;
+import com.fastcampus.toyboard.comment.dto.CommentDto;
+import com.fastcampus.toyboard.user.dto.BoardUserDto;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
-import java.util.List;
-
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Setter
 public class BoardDto {
-    private Long id;
+  private Long boardId;
+  private BoardUserDto boardUserDto;
+  @Setter private String title;
+  @Setter private String content;
+  @Setter private String category;
 
-    @NotEmpty(message = "제목을 입력해주세요.")
-    private String title;
+  @Setter
+  @JsonIgnoreProperties({"boardDto"})
+  private List<CommentDto> commentDtos;
 
-    @NotEmpty(message = "내용을 입력해주세요.")
-    private String content;
+  private LocalDateTime createdAt;
+  private LocalDateTime updatedAt;
 
-    private String nickName;
+  public static BoardDto of(
+      BoardUserDto boarUserDto, String title, String content, String category) {
+    return new BoardDto(null, boarUserDto, title, content, category, null, null, null);
+  }
 
-    private BoardType boardType; // category 대신 boardType 필드를 사용
+  public static Board toEntity(BoardDto dto) {
+    return Board.of(
+        BoardUserDto.toEntity(dto.getBoardUserDto()),
+        dto.getTitle(),
+        dto.getContent(),
+        dto.getCategory());
+  }
 
-    private List<CommentDto> comments; // 용호님 CommentDto
-
-    private ReportType[] reportTypes = ReportType.values();
+  public static BoardDto fromEntity(Board entity) {
+    return new BoardDto(
+        entity.getBoardId(),
+        BoardUserDto.fromEntity(entity.getBoardUser()),
+        entity.getTitle(),
+        entity.getContent(),
+        entity.getCategory(),
+        entity.getComments().stream().map(CommentDto::fromEntity).collect(Collectors.toList()),
+        entity.getCreatedAt(),
+        entity.getUpdatedAt());
+  }
 }

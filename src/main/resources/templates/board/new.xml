@@ -4,5 +4,5 @@
   <attr sel="#header" th:replace="common/header :: header"/>
   <attr sel="#footer" th:replace="common/footer :: footer"/>
 
-  <attr sel="#board-form" th:action="@{/board/write}" th:method="POST"/>
+  <attr sel="#board-form" th:action="@{'/board/write?category='+${currentCategory}}" th:method="POST"/>
 </thlogic>

@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 @Configuration
 @RequiredArgsConstructor
@@ -60,6 +61,14 @@ public class SecurityConfig {
 
     http.logout(
         logout -> logout.logoutUrl("/logout").deleteCookies("JSESSIONID").logoutSuccessUrl("/"));
+
+    http.exceptionHandling().accessDeniedPage("/error403");
+
     return http.build();
+  }
+
+  @Bean
+  public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
+    return new HiddenHttpMethodFilter();
   }
 }

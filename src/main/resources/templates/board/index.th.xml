@@ -2,9 +2,9 @@
 <thlogic>
   <attr sel="#write-post"
         sec:authorize="isAuthenticated()"
-        th:unless="${#authentication.authorities.stream().findFirst().orElseThrow().getAuthority()}=='BLACK'"
-        th:text="${#authentication.getPrincipal().getNickname()}"
-  />
+        th:href="@{'/board/write?category='+${currentCategory}}"
+        th:unless="${#authentication.authorities.stream().findFirst().orElseThrow().getAuthority()}=='BLACK'"/>
+  <!--        th:text="${#authentication.getPrincipal().getNickname()}"-->
 
   <attr sel="#main" th:object="${boards}">
     <attr sel="#posts">
@@ -19,23 +19,20 @@
     </attr>
   </attr>
 
-  <attr sel="#pagination">
-    <attr sel="#prev"
-          th:href="
-            (${boards.number -1} <= 0)
-            ? ''
-            : (@{/board(page=${boards.number - 1})}) "
-    />
-    <attr sel="#page-index" th:each="pageNumber : ${paginationBarNumbers}">
-      <attr sel="#page-index-nums"
-            th:text="${pageNumber + 1}"
-            th:href="@{/board(page=${pageNumber})}"
-            th:class="(${pageNumber} == ${boards.number} ? ' active' : '')"
-      />
-    </attr>
-    <attr sel="#next"
-          th:href="(${boards.number} >= ${boards.totalPages-1}) ? '' : (@{/board(page=${boards.number + 1}) })"
-    />
+  <attr sel="#pagination" th:object="${currentCategory}">
+        <attr sel="#prev"
+              th:href="(${boards.number -1} < 0) ? '' : (@{'/board/'+${currentCategory}(page=${boards.number - 1})})"
+        />
+        <attr sel="#page-index" th:each="pageNumber : ${paginationBarNumbers}">
+          <attr sel="#page-index-nums"
+                th:text="${pageNumber + 1}"
+                th:href="(@{'/board/'+${currentCategory}(page=${pageNumber})})"
+                th:class="(${pageNumber} == ${boards.number} ? ' active' : '')"
+          />
+        </attr>
+        <attr sel="#next"
+              th:href="(${boards.number} >= ${boards.totalPages-1}) ? '' : (@{'/board/'+${currentCategory}(page=${boards.number + 1})})"
+        />
   </attr>
 
 

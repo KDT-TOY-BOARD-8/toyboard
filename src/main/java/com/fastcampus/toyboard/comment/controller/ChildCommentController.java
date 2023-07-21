@@ -1,38 +1,40 @@
 package com.fastcampus.toyboard.comment.controller;
 
+import com.fastcampus.toyboard.comment.dto.ChildCommentRequestDto;
 import com.fastcampus.toyboard.comment.dto.CommentRequestDto;
 import com.fastcampus.toyboard.comment.service.ChildCommentService;
+import com.fastcampus.toyboard.user.model.BoardUser;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/child-comments")
 @RequiredArgsConstructor
 public class ChildCommentController {
   private final ChildCommentService childCommentService;
 
-  @PostMapping("/new")
+  @PostMapping("/board/{boardId}/comment/{parentCommentId}/child-comment/new")
   public String postNewChildComment(
-      //      @AuthenticationPrincipal BoardPrincipal boardPrincipal,
-      CommentRequestDto commentRequestDto) {
-    //    commentService.saveComment(CommentRequest.toDto(boardPrincipal.toDto()));
+      @AuthenticationPrincipal BoardUser boardUser,
+      @PathVariable Long boardId,
+      @PathVariable Long parentCommentId,
+      ChildCommentRequestDto childCommentRequestDto) {
 
-    // TODO - 수현님 작업 결과에 맞춰서 수정
-    return "redirect:/board/";
-    //           + CommentRequest.boardId();
+    childCommentService.saveNewChildComment(
+        boardUser.getUserId(), parentCommentId, childCommentRequestDto);
+
+    return "redirect:/board/" + boardId;
   }
 
-  @PostMapping("/{childCommentId}/delete")
-  public String deleteChildComment(
-      @PathVariable Long chlidCommentId,
-      //      @AuthenticationPrincipal BoardPrincipal boardPrincipal,
-      Long commentId) {
-//      childCommentService.deleteChildComment(childCommentId,boardPrincipal.getNickname(), commentId);
+  @DeleteMapping("/board/{boardId}/child-comment/{childCommentId}")
+  public String deleteChildComment(@PathVariable Long boardId, @PathVariable Long childCommentId) {
 
-    return "redirect:/board/";
-    //    + articleId;
+    childCommentService.deleteChildCommentById(childCommentId);
+
+    return "redirect:/board/" + boardId;
   }
 }
