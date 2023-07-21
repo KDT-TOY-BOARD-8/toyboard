@@ -17,16 +17,6 @@ public class BoardUserController {
     return "login";
   }
 
-  @PostMapping("/login")
-  public String login(
-       BoardUserRequest.LoginDto loginDto) {
-    System.out.println(
-        "Username : " + loginDto.getUsername() + ", Password : " + loginDto.getPassword());
-    System.out.println("Login Success.");
-
-    return "redirect:/";
-  }
-
   @GetMapping("/sign-up")
   public String signUp() {
     return "sign-up";
