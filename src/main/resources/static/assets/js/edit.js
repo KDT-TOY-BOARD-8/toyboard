@@ -1,3 +1,6 @@
+var emailOverlapCheck = 0;
+var nicknameOverlapCheck = 0;
+
 window.onload = () => {
   getMyInfo();
 }
