@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
   @Query(
@@ -26,7 +28,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
   @Query(
           value =
-                  "select b.boardId as boardId, bu.nickname as nickname, b.title as title, b.content as content, b.hide as hide,  b.createdAt as createdAt "
+                  "select b.boardId as boardId, b.category as category, bu.nickname as nickname, b.title as title, b.content as content, b.hide as hide,  b.createdAt as createdAt "
                   + "from board_tb b "
                   + "left join BoardUser bu on b.boardUser.userId = bu.userId "
                   + "left join BoardAuthority ba on bu.userId=ba.userId "
@@ -51,4 +53,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
           + "left join BoardUser bu on b.boardUser.userId = bu.userId "
           + "where (b.hide is null or b.hide = false)")
   Page<IBoard> findBoardsByHideNot(Pageable pageable);
+
+  Optional<Board> findBoardByBoardId(Long boardId);
 }

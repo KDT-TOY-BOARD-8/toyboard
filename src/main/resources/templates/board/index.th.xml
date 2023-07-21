@@ -12,7 +12,7 @@
         <attr sel="li[0]" th:each="board : ${boards}">
           <attr sel="div/div/span.writer" th:text="${board.nickname}"/>
           <attr sel="div/div/span.created-at" th:text="${board.createdAt}"/>
-          <attr sel="div/h1/a" th:href="@{'/board/'+${board.boardId}}" th:text="${board.title}"/>
+          <attr sel="div/h1/a" th:href="@{'/board/'+${board.category}+'/'+${board.boardId}}" th:text="${board.title}"/>
           <attr sel="div/h5.card-body" th:text="${board.content}"/>
         </attr>
       </attr>
@@ -20,19 +20,19 @@
   </attr>
 
   <attr sel="#pagination" th:object="${currentCategory}">
-        <attr sel="#prev"
-              th:href="(${boards.number -1} < 0) ? '' : (@{'/board/'+${currentCategory}(page=${boards.number - 1})})"
-        />
-        <attr sel="#page-index" th:each="pageNumber : ${paginationBarNumbers}">
-          <attr sel="#page-index-nums"
-                th:text="${pageNumber + 1}"
-                th:href="(@{'/board/'+${currentCategory}(page=${pageNumber})})"
-                th:class="(${pageNumber} == ${boards.number} ? ' active' : '')"
-          />
-        </attr>
-        <attr sel="#next"
-              th:href="(${boards.number} >= ${boards.totalPages-1}) ? '' : (@{'/board/'+${currentCategory}(page=${boards.number + 1})})"
-        />
+    <attr sel="#prev"
+          th:href="(${boards.number -1} < 0) ? '' : (@{'/board/'+${currentCategory}(page=${boards.number - 1})})"
+    />
+    <attr sel="#page-index" th:each="pageNumber : ${paginationBarNumbers}">
+      <attr sel="#page-index-nums"
+            th:text="${pageNumber + 1}"
+            th:href="(@{'/board/'+${currentCategory}(page=${pageNumber})})"
+            th:class="(${pageNumber} == ${boards.number} ? ' active' : '')"
+      />
+    </attr>
+    <attr sel="#next"
+          th:href="(${boards.number} >= ${boards.totalPages-1}) ? '' : (@{'/board/'+${currentCategory}(page=${boards.number + 1})})"
+    />
   </attr>
 
 

@@ -3,6 +3,7 @@ package com.fastcampus.toyboard.board.controller;
 import com.fastcampus.toyboard.board.dto.BoardRequestDto;
 import com.fastcampus.toyboard.board.dto.BoardResponseDto;
 import com.fastcampus.toyboard.board.dto.BoardResponseWithComment;
+import com.fastcampus.toyboard.board.repository.BoardRepository;
 import com.fastcampus.toyboard.board.service.BoardService;
 import com.fastcampus.toyboard.user.dto.BoardUserDto;
 import com.fastcampus.toyboard.user.model.BoardUser;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class BoardController {
   private final BoardService boardService;
+  private final BoardRepository boardRepository;
 
   @GetMapping
   public String boardList(
@@ -49,7 +51,7 @@ public class BoardController {
   }
 
   @GetMapping("/sprout")
-  public String boardSprout(
+  public String boardsSprout(
       @SortDefault.SortDefaults({
             @SortDefault(
                 sort = {"createdAt"},
@@ -75,7 +77,7 @@ public class BoardController {
 
   @PreAuthorize("hasAuthority('GREAT')")
   @GetMapping("/great")
-  public String boardGreat(
+  public String boardsGreat(
       @SortDefault.SortDefaults({
             @SortDefault(
                 sort = {"createdAt"},
@@ -110,9 +112,9 @@ public class BoardController {
 
   // 게시글 작성 페이지 요청 처리
   @GetMapping("/write")
-  public String showWriteForm(@RequestParam String category,ModelMap map) {
+  public String showWriteForm(@RequestParam String category, ModelMap map) {
     map.addAttribute("currentCategory", category);
-    return "new";
+    return "board/write-post";
   }
 
   // 게시글 작성 요청 처리
@@ -142,8 +144,31 @@ public class BoardController {
   }
 
   // 게시글 상세보기 요청 처리
-  @GetMapping("/{boardId}")
-  public String detail(@PathVariable Long boardId, ModelMap model) {
+  @GetMapping("/{category}/{boardId}")
+  public String detail(
+      @AuthenticationPrincipal BoardUser boardUser,
+      @PathVariable String category,
+      @PathVariable Long boardId,
+      ModelMap model) {
+    System.out.println("Detail called.");
+    System.out.println(
+        boardUser.getAuthorities().stream().findFirst().orElseThrow().getAuthority().toLowerCase());
+    System.out.println(category);
+
+    if (!boardUser.getAuthorities().stream()
+            .findFirst()
+            .orElseThrow()
+            .getAuthority()
+            .toLowerCase()
+            .equals(category)
+        || !boardRepository
+            .findBoardByBoardId(boardId)
+            .orElseThrow()
+            .getCategory()
+            .equals(category)) {
+      return "redirect:/error403";
+    }
+
     BoardResponseWithComment boardResponseWithComment = boardService.getBoardByBoardId(boardId);
     model.addAttribute("board", boardResponseWithComment);
     model.addAttribute("comments", boardResponseWithComment.getCommentResponseWithChildren());

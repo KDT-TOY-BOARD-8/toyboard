@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <thlogic>
-  <attr sel="#report-form" th:action="@{}">
+  <attr sel="#reason" th:remove="all-but-first" th:name="reportTypes">
+    <attr sel="option[0]" th:each="reportType : ${reportTypes}" th:value="${reportType}"
+          th:text="${reportType.getValue()}"/>
+  </attr>
+  <attr sel="#report-form" th:action="@{'/board/'+${boardId}+'/report'}" th:method="POST">
+
 
   </attr>
   <attr sel="#head" th:replace="common/head :: head"/>
