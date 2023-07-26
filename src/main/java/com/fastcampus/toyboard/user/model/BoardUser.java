@@ -1,14 +1,12 @@
 package com.fastcampus.toyboard.user.model;
 
 import com.fastcampus.toyboard.common.jpa.BaseTimeEntity;
-import java.util.Set;
-import javax.persistence.*;
-
 import com.fastcampus.toyboard.user.dto.BoardUserDto;
 import com.fastcampus.toyboard.user.dto.BoardUserRequest;
+import java.util.Set;
+import javax.persistence.*;
 import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -79,21 +77,12 @@ public class BoardUser extends BaseTimeEntity implements UserDetails {
         signUpDto.getNickname());
   }
 
-  // 정보 수정
-  public void updatePassword(PasswordEncoder passwordEncoder, String password) {
-    this.password = passwordEncoder.encode(password);
-  }
-
   public void updateEmail(String email) {
     this.email = email;
   }
 
   public void updateNickname(String nickname) {
     this.nickname = nickname;
-  }
-
-  public boolean matchPassword(PasswordEncoder passwordEncoder, String currentPw) {
-    return passwordEncoder.matches(currentPw, getPassword());
   }
 
   @Override

@@ -45,7 +45,7 @@ public class SecurityConfig {
         auth ->
             auth.antMatchers("/assets", "/assets/**")
                 .permitAll()
-                .antMatchers("/", "/login", "/sign-up", "/login-failed")
+                .antMatchers("/", "/login", "/sign-up", "/sign-up/**", "/login-failed")
                 .permitAll()
                 .antMatchers("/board/sprout", "/board/sprout/**")
                 .hasAnyAuthority("SPROUT", "GREAT")
