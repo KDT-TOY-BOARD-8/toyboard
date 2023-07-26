@@ -393,8 +393,10 @@
 </details> 
 
 ### 4-2. ERD 설계
-
-  ![256139442-18fafb04-8853-45b7-99a3-87e8de22b701](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/111266513/620f4ffd-1ac5-4e87-9c73-0adc114ed5db)
+<details>
+    <summary><strong>ERD 설계</strong> </summary> 
+<img width="1000" alt="스크린샷 2023-07-20 오후 9 43 02" src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/111266513/620f4ffd-1ac5-4e87-9c73-0adc114ed5db"> </details>
+  
 
 ### 4-3. API 설계
 
