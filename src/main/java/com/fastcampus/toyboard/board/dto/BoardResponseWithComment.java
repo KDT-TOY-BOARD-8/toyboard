@@ -2,8 +2,8 @@ package com.fastcampus.toyboard.board.dto;
 
 import com.fastcampus.toyboard.board.model.Board;
 import com.fastcampus.toyboard.comment.dto.CommentResponseWithChildren;
-
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AccessLevel;
@@ -31,8 +31,10 @@ public class BoardResponseWithComment {
         board.getContent(),
         board.getCategory(),
         board.getCreatedAt(),
-        board.getComments().stream()
-            .map(CommentResponseWithChildren::of)
-            .collect(Collectors.toList()));
+        board.getComments() == null
+            ? new ArrayList<>()
+            : board.getComments().stream()
+                .map(CommentResponseWithChildren::of)
+                .collect(Collectors.toList()));
   }
 }

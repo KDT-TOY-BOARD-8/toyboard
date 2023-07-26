@@ -1,13 +1,13 @@
 package com.fastcampus.toyboard.comment.dto;
 
 import com.fastcampus.toyboard.comment.model.Comment;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Setter
@@ -25,8 +25,10 @@ public class CommentResponseWithChildren {
         comment.getBoardUser().getUserId(),
         comment.getBoardUser().getNickname(),
         comment.getContent(),
-        comment.getChildComments().stream()
-            .map(ChildCommentResponse::of)
-            .collect(Collectors.toList()));
+        comment.getChildComments() == null
+            ? new ArrayList<>()
+            : comment.getChildComments().stream()
+                .map(ChildCommentResponse::of)
+                .collect(Collectors.toList()));
   }
 }

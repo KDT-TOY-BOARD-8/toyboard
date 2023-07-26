@@ -171,25 +171,6 @@ public class BoardController {
     BoardResponseWithComment boardResponseWithComment = boardService.getBoardByBoardId(boardId);
     model.addAttribute("board", boardResponseWithComment);
     model.addAttribute("category", category);
-    model.addAttribute("comments", boardResponseWithComment.getCommentResponseWithChildren());
-    log.info("댓글 수 : {}", boardResponseWithComment.getCommentResponseWithChildren().size());
-    boardResponseWithComment
-        .getCommentResponseWithChildren()
-        .forEach(
-            commentResponseWithChildren -> {
-              log.info(
-                  "댓글 ID : {}, 대댓글 수 : {}",
-                  commentResponseWithChildren.getCommentId(),
-                  commentResponseWithChildren.getChildComments().size());
-              commentResponseWithChildren
-                  .getChildComments()
-                  .forEach(
-                      childComment ->
-                          log.info(
-                              "작성자 : {}, 대댓글 내용 : {}",
-                              childComment.getNickname(),
-                              childComment.getContent()));
-            });
 
     return "board/detail";
   }

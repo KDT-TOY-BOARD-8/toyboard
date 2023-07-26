@@ -7,9 +7,9 @@
     <attr sel="#board-content" th:text="${board.content}"/>
 
     <attr sel="#comment-section">
-      <attr sel="#comment-total" th:text="${comments.size} + ' Comments'"/>
+      <attr sel="#comment-total" th:text="${board.comments.size} + ' Comments'"/>
       <attr sel="ul.all-comments-row" th:remove="all-but-first">
-        <attr sel="li.parent-comment[0]" th:each="comment : ${comments}">
+        <attr sel="li.parent-comment[0]" th:each="comment : ${board.comments}">
           <attr sel="div.parent-comment-body">
             <attr sel="h6.parent-comment-writer" th:text="${comment.nickname}"/>
             <attr sel="div.parent-comment-content" th:text="${comment.content}"/>
