@@ -14,6 +14,7 @@ import lombok.Getter;
 @Getter
 public class BoardResponseWithComment {
   private Long boardId;
+  private Long userId;
   private String nickname;
   private String title;
   private String content;
@@ -24,6 +25,7 @@ public class BoardResponseWithComment {
   public static BoardResponseWithComment of(Board board) {
     return new BoardResponseWithComment(
         board.getBoardId(),
+        board.getBoardUser().getUserId(),
         board.getBoardUser().getNickname(),
         board.getTitle(),
         board.getContent(),

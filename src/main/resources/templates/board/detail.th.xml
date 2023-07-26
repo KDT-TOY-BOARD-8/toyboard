@@ -16,8 +16,8 @@
 
             <!-- 댓글 삭제 버튼 -->
             <attr sel=".delete-comment-btn" sec:authorize="isAuthenticated()"
-                  th:if="${#authentication.getPrincipal().getNickname()} == ${comment.nickname}"
-                  th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId}}" th:method="DELETE"/>
+                  th:if="${#authentication.getPrincipal().getUserId()} == ${comment.userId}"
+                  th:action="@{'/board/'+ ${category} +'/' +${board.boardId} + '/comment/' + ${comment.commentId}}" th:method="DELETE"/>
 
             <attr sel="#child-comment-form" sec:authorize="isAuthenticated()"
                   th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId} + '/child-comment/new'}"
@@ -49,15 +49,17 @@
 
   <!-- 게시글 신고 페이지 버튼 -->
   <attr sel="#report-post-btn" sec:authorize="isAuthenticated()"
-        th:href="@{'/board/'+ ${board.boardId} + '/report'}"/>
+        th:if="${#authentication.getPrincipal().getUserId()} != ${board.userId}"
+        th:href="@{'/board/'+${category}+'/'+ ${board.boardId} + '/report'}"/>
 
   <!-- 게시글 수정 페이지 버튼 -->
   <attr sel="#update-post-btn" sec:authorize="isAuthenticated()"
-        th:href="@{'/board/'+ ${board.boardId} + '/edit'}"/>
+        th:if="${#authentication.getPrincipal().getUserId()} == ${board.userId}"
+        th:href="@{'/board/' + ${board.boardId} + '/edit'}"/>
 
   <!-- 게시글 삭제 버튼 -->
   <attr sel="#delete-post-btn" sec:authorize="isAuthenticated()"
-        th:if="${#authentication.getPrincipal().getNickname()} == ${board.nickname}"
+        th:if="${#authentication.getPrincipal().getUserId()} == ${board.userId}"
         th:action="@{'/board/'+${board.boardId}}" th:method="DELETE"/>
 
   <!-- 댓글 작성 버튼 -->
