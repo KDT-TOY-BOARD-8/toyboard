@@ -148,7 +148,7 @@
    <br> (게시판은 2개이지만 하나의 화면을 공유해서 사용하고 카테고리로 구분함)
    <br>
    <br>
-   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7f20a28d-e9e8-4228-9660-128ac2a74649" />
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/606d2517-e8c7-47ba-bb9c-64ca30381755" />
 </details>
 <details>
     <summary><strong>게시글 쓰기 실행화면</strong> </summary>
