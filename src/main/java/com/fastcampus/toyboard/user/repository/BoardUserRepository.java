@@ -1,20 +1,16 @@
 package com.fastcampus.toyboard.user.repository;
 
 import com.fastcampus.toyboard.user.model.BoardUser;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardUserRepository extends JpaRepository<BoardUser, Long> {
 
-    Optional<BoardUser> findBoardUserByNickname(String nickname);
+  Optional<BoardUser> findBoardUserByUsername(String username);
 
-    Optional<BoardUser> findBoardUserByUsername(String username);
+  Boolean existsByUsername(String username);
 
-    boolean existsByUsername(String username);
+  Boolean existsByEmail(String email);
 
-    boolean existsByEmail(String email);
-
-    boolean existsByNickname(String nickname);
-
+  Boolean existsByNickname(String nickname);
 }
