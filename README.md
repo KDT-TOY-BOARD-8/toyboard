@@ -228,8 +228,7 @@
 
 ### 4-2. ERD 설계
 
-- 수정할 부분 있으면 수정후 다시 이미지 올리기
-  ![Toyboard (1)](https://github.com/YangSooHyun0/TIL/assets/111266513/a4084c21-413a-4667-929b-23e7b480fb63)
+  ![256139442-18fafb04-8853-45b7-99a3-87e8de22b701](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/111266513/620f4ffd-1ac5-4e87-9c73-0adc114ed5db)
 
 ### 4-3. API 설계
 
