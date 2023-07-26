@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
   <head id="head"><title>Head 태그 삽입부</title></head>
 
@@ -35,16 +35,14 @@
               </div>
 
 
-
-
-
               <div class="row justify-content-evenly">
                 <div class="col-lg-2">
                   <label for="password">Password</label>
                 </div>
 
                 <div class="col-lg-5 mb-3 justify-content-center">
-                  <input type="password" class="form-control" id="password" name="password1" placeholder="Enter your password">
+                  <input type="password" class="form-control" id="password" name="password1"
+                         placeholder="Enter your password">
                   <p></p>
                 </div>
               </div>
@@ -55,9 +53,11 @@
                 </div>
 
                 <div class="col-lg-5 mb-3 justify-content-center">
-                  <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-Enter your password">
+                  <input type="password" class="form-control" id="password2" name="password2"
+                         placeholder="Re-Enter your password">
                   <span id="alert-success" style="display: none;">비밀번호가 일치합니다.</span>
-                  <span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
+                  <span id="alert-danger"
+                        style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
                   <p></p>
                 </div>
               </div>
@@ -88,7 +88,8 @@
                 </div>
 
                 <div class="col-lg-5 mb-3 justify-content-center">
-                  <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter your Nickname">
+                  <input type="text" class="form-control" id="nickname" name="nickname"
+                         placeholder="Enter your Nickname">
                   <p></p>
                   <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="nicknameOverlay"
                          onclick="nicknameCheck()" value="중복 체크"/>
@@ -129,6 +130,7 @@
         class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
