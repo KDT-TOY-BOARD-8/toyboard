@@ -224,7 +224,173 @@
 ### 4-1. 패키지 구조
 
 <details>
-    <summary><strong>패키지 구조 보기</strong> </summary> - 프로젝트 완성 후 넣기 </details> 
+    <summary><strong>패키지 구조 보기</strong> </summary>
+```
+📦 
+├─ .gitignore
+├─ README.md
+├─ build.gradle
+├─ docker-compose.yml
+├─ gradle
+│  └─ wrapper
+│     ├─ gradle-wrapper.jar
+│     └─ gradle-wrapper.properties
+├─ gradlew
+├─ gradlew.bat
+├─ settings.gradle
+└─ src
+   ├─ main
+   │  ├─ java
+   │  │  └─ com
+   │  │     └─ fastcampus
+   │  │        └─ toyboard
+   │  │           ├─ ToyboardApplication.java
+   │  │           ├─ board
+   │  │           │  ├─ controller
+   │  │           │  │  └─ BoardController.java
+   │  │           │  ├─ dto
+   │  │           │  │  ├─ BoardDto.java
+   │  │           │  │  ├─ BoardRequestDto.java
+   │  │           │  │  ├─ BoardResponseDto.java
+   │  │           │  │  ├─ BoardResponseWithComment.java
+   │  │           │  │  └─ BoardWithCommentDto.java
+   │  │           │  ├─ model
+   │  │           │  │  └─ Board.java
+   │  │           │  ├─ repository
+   │  │           │  │  ├─ BoardRepository.java
+   │  │           │  │  └─ IBoard.java
+   │  │           │  └─ service
+   │  │           │     └─ BoardService.java
+   │  │           ├─ comment
+   │  │           │  ├─ controller
+   │  │           │  │  ├─ ChildCommentController.java
+   │  │           │  │  └─ CommentController.java
+   │  │           │  ├─ dto
+   │  │           │  │  ├─ ChildCommentDto.java
+   │  │           │  │  ├─ ChildCommentRequestDto.java
+   │  │           │  │  ├─ ChildCommentResponse.java
+   │  │           │  │  ├─ CommentDto.java
+   │  │           │  │  ├─ CommentRequestDto.java
+   │  │           │  │  ├─ CommentResponseDto.java
+   │  │           │  │  └─ CommentResponseWithChildren.java
+   │  │           │  ├─ model
+   │  │           │  │  ├─ ChildComment.java
+   │  │           │  │  └─ Comment.java
+   │  │           │  ├─ repository
+   │  │           │  │  ├─ ChildCommentRepository.java
+   │  │           │  │  └─ CommentRepository.java
+   │  │           │  └─ service
+   │  │           │     ├─ ChildCommentService.java
+   │  │           │     └─ CommentService.java
+   │  │           ├─ common
+   │  │           │  ├─ MainController.java
+   │  │           │  ├─ exceptions
+   │  │           │  │  ├─ ErrorController.java
+   │  │           │  │  └─ ToyboardInternalExceptionHandler.java
+   │  │           │  └─ jpa
+   │  │           │     └─ BaseTimeEntity.java
+   │  │           ├─ config
+   │  │           │  ├─ JpaConfig.java
+   │  │           │  ├─ ThymeleafConfig.java
+   │  │           │  └─ security
+   │  │           │     ├─ BoardUserAuthenticationFilter.java
+   │  │           │     ├─ BoardUserManager.java
+   │  │           │     ├─ BoardUserToken.java
+   │  │           │     ├─ PasswordEncoderConfig.java
+   │  │           │     └─ SecurityConfig.java
+   │  │           ├─ report
+   │  │           │  ├─ controller
+   │  │           │  │  └─ ReportController.java
+   │  │           │  ├─ dto
+   │  │           │  │  └─ ReportRequestDto.java
+   │  │           │  ├─ model
+   │  │           │  │  ├─ Report.java
+   │  │           │  │  └─ ReportType.java
+   │  │           │  ├─ repository
+   │  │           │  │  └─ ReportRepository.java
+   │  │           │  └─ service
+   │  │           │     └─ ReportService.java
+   │  │           └─ user
+   │  │              ├─ controller
+   │  │              │  └─ BoardUserController.java
+   │  │              ├─ dto
+   │  │              │  ├─ BoardUserDto.java
+   │  │              │  └─ BoardUserRequest.java
+   │  │              ├─ model
+   │  │              │  ├─ BoardAuthority.java
+   │  │              │  └─ BoardUser.java
+   │  │              ├─ repository
+   │  │              │  ├─ BoardAuthorityRepository.java
+   │  │              │  └─ BoardUserRepository.java
+   │  │              └─ service
+   │  │                 └─ BoardUserService.java
+   │  └─ resources
+   │     ├─ application.yml
+   │     ├─ data.sql
+   │     ├─ static
+   │     │  └─ assets
+   │     │     ├─ css
+   │     │     ├─ img
+   │     │     ├─ js
+   │     │     ├─ scss
+   │     │     └─ vendor
+   │     │        ├─ aos
+   │     │        ├─ bootstrap-icons
+   │     │        ├─ bootstrap
+   │     │        ├─ glightbox
+   │     │        ├─ php-email-form
+   │     │        └─ swiper
+   │     └─ templates
+   │        ├─ board
+   │        │  ├─ detail.html
+   │        │  ├─ detail.th.xml
+   │        │  ├─ index.html
+   │        │  ├─ index.th.xml
+   │        │  ├─ report-post.html
+   │        │  ├─ report-post.th.xml
+   │        │  ├─ update-post.html
+   │        │  ├─ update-post.th.xml
+   │        │  ├─ write-post.html
+   │        │  └─ write-post.th.xml
+   │        ├─ common
+   │        │  ├─ footer.html
+   │        │  ├─ head.html
+   │        │  ├─ header.html
+   │        │  └─ header.th.xml
+   │        ├─ error.html
+   │        ├─ error.th.xml
+   │        ├─ error
+   │        │  ├─ error400.html
+   │        │  ├─ error400.th.xml
+   │        │  ├─ error403.html
+   │        │  ├─ error403.th.xml
+   │        │  ├─ error404.html
+   │        │  ├─ error404.th.xml
+   │        │  ├─ error500.html
+   │        │  └─ error500.th.xml
+   │        ├─ login-failed.html
+   │        ├─ login-failed.th.xml
+   │        ├─ login.html
+   │        ├─ login.th.xml
+   │        ├─ sign-up.html
+   │        ├─ sign-up.th.xml
+   │        └─ user
+   │           ├─ edit.html
+   │           ├─ edit.th.xml
+   │           ├─ editPw.html
+   │           ├─ editPw.th.xml
+   │           ├─ my-info.html
+   │           └─ my-info.th.xml
+   └─ test
+      └─ java
+         └─ com
+            └─ fastcampus
+               └─ toyboard
+                  └─ ToyboardApplicationTests.java
+```
+©generated by [Project Tree Generator](https://woochanleee.github.io/project-tree-generator)    
+
+</details> 
 
 ### 4-2. ERD 설계
 
