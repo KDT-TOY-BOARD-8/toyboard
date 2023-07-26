@@ -395,20 +395,20 @@
 ### 4-2. ERD 설계
 <details>
     <summary><strong>ERD 설계</strong> </summary> 
-<img width="1000" alt="스크린샷 2023-07-20 오후 9 43 02" src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/111266513/620f4ffd-1ac5-4e87-9c73-0adc114ed5db"> </details>
+<img width="800" alt="스크린샷 2023-07-20 오후 9 43 02" src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/111266513/620f4ffd-1ac5-4e87-9c73-0adc114ed5db"> </details>
   
 
 ### 4-3. API 설계
 
 <details>
     <summary><strong>회원 API</strong> </summary> 
-<img width="547" alt="스크린샷 2023-07-20 오후 9 05 35" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/bd5c7c5a-a71f-4105-b52c-80e7a04a3b15"> </details>
+<img width="800" alt="스크린샷 2023-07-20 오후 9 05 35" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/bd5c7c5a-a71f-4105-b52c-80e7a04a3b15"> </details>
 <details>
-    <summary><strong>게시판 API</strong> </summary> <img width="500" alt="스크린샷 2023-07-20 오후 8 38 14" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/ebc00e10-ce46-403b-87a0-a11b8fe48473"> </details>
+    <summary><strong>게시판 API</strong> </summary> <img width="800" alt="스크린샷 2023-07-20 오후 8 38 14" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/ebc00e10-ce46-403b-87a0-a11b8fe48473"> </details>
  <details>
     <summary><strong>댓글 API</strong> </summary> <img width="801" alt="스크린샷 2023-07-20 오후 8 38 47" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/377cc1c2-fea2-4414-aeaf-92f4ab832e7c"> </details>
  <details>
-    <summary><strong>관리자 API</strong> </summary> <img width="615" alt="스크린샷 2023-07-20 오후 9 43 02" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/7254ae23-e5b1-49ae-be30-684ae713017a"> </details>
+    <summary><strong>관리자 API</strong> </summary> <img width="800" alt="스크린샷 2023-07-20 오후 9 43 02" src="https://github.com/YangSooHyun0/Spring-Boot-JPA/assets/111266513/7254ae23-e5b1-49ae-be30-684ae713017a"> </details>
 
 ## 5. 팀원 역할
 
