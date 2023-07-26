@@ -1,14 +1,20 @@
 package com.fastcampus.toyboard.report.dto;
 
+import com.fastcampus.toyboard.board.model.Board;
+import com.fastcampus.toyboard.report.model.Report;
 import com.fastcampus.toyboard.report.model.ReportType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import com.fastcampus.toyboard.user.model.BoardUser;
+import lombok.*;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class ReportRequestDto {
-  private final ReportType reason;
-  private final String detail;
+  private ReportType reportType;
+  private String detail;
+
+  public Report toEntity(Board board, BoardUser boardUser) {
+    return Report.of(board, boardUser, reportType, detail);
+  }
 }
