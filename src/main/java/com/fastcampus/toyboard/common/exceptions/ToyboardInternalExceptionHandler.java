@@ -1,21 +1,20 @@
-package com.fastcampus.toyboard.common;
+package com.fastcampus.toyboard.common.exceptions;
 
+import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import javax.servlet.http.HttpServletRequest;
-import java.nio.file.AccessDeniedException;
-
 @Slf4j
 @ControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class ToyboardExceptionHandler {
+public class ToyboardInternalExceptionHandler {
   @ExceptionHandler(
       value = {
         HttpRequestMethodNotSupportedException.class,

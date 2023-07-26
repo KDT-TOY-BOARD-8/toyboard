@@ -1,4 +1,4 @@
-package com.fastcampus.toyboard.common;
+package com.fastcampus.toyboard.common.exceptions;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
