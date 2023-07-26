@@ -11,19 +11,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @Controller
 @RequestMapping("/board")
 @RequiredArgsConstructor
@@ -36,9 +38,11 @@ public class BoardController {
       @AuthenticationPrincipal BoardUser boardUser, Pageable pageable, ModelMap map) {
     String authority = boardUser.getAuthorities().stream().findFirst().orElseThrow().getAuthority();
 
-    if (authority.equals("GREAT") || authority.equals("ADMIN")) {
+    if (authority.equals("GREAT")) {
       return "redirect:/board/great";
-    } else if (authority.equals("SPROUT")) {
+    }
+
+    if (authority.equals("SPROUT")) {
       return "redirect:/board/sprout";
     }
 
@@ -75,7 +79,6 @@ public class BoardController {
     return "board/index";
   }
 
-  @PreAuthorize("hasAuthority('GREAT')")
   @GetMapping("/great")
   public String boardsGreat(
       @SortDefault.SortDefaults({
@@ -101,7 +104,7 @@ public class BoardController {
     return "board/index";
   }
 
-  public List<Integer> getPaginationBarNumbers(int currentPageNumber, int totalPages) {
+  private List<Integer> getPaginationBarNumbers(int currentPageNumber, int totalPages) {
     final int BAR_LENGTH = 5;
 
     int startNumber = Math.max(currentPageNumber - (BAR_LENGTH / 2), 0);
@@ -150,10 +153,6 @@ public class BoardController {
       @PathVariable String category,
       @PathVariable Long boardId,
       ModelMap model) {
-    System.out.println("Detail called.");
-    System.out.println(
-        boardUser.getAuthorities().stream().findFirst().orElseThrow().getAuthority().toLowerCase());
-    System.out.println(category);
 
     if (!boardUser.getAuthorities().stream()
             .findFirst()
@@ -166,22 +165,30 @@ public class BoardController {
             .orElseThrow()
             .getCategory()
             .equals(category)) {
-      return "redirect:/error403";
+      throw new AccessDeniedException("접근 권한이 없습니다.");
     }
 
     BoardResponseWithComment boardResponseWithComment = boardService.getBoardByBoardId(boardId);
     model.addAttribute("board", boardResponseWithComment);
+    model.addAttribute("category", category);
     model.addAttribute("comments", boardResponseWithComment.getCommentResponseWithChildren());
-    System.out.println(
-        "\n댓글 수 : "
-            + boardResponseWithComment.getCommentResponseWithChildren().size()
-            + "\n대댓글 수 : ");
+    log.info("댓글 수 : {}", boardResponseWithComment.getCommentResponseWithChildren().size());
     boardResponseWithComment
         .getCommentResponseWithChildren()
         .forEach(
             commentResponseWithChildren -> {
-              System.out.println(commentResponseWithChildren.getChildComments().size());
-              commentResponseWithChildren.getChildComments().forEach(System.out::println);
+              log.info(
+                  "댓글 ID : {}, 대댓글 수 : {}",
+                  commentResponseWithChildren.getCommentId(),
+                  commentResponseWithChildren.getChildComments().size());
+              commentResponseWithChildren
+                  .getChildComments()
+                  .forEach(
+                      childComment ->
+                          log.info(
+                              "작성자 : {}, 대댓글 내용 : {}",
+                              childComment.getNickname(),
+                              childComment.getContent()));
             });
 
     return "board/detail";
