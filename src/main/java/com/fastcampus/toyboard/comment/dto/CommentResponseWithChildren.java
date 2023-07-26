@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @Getter
 public class CommentResponseWithChildren {
   private final Long commentId;
+  private final Long userId;
   private final String nickname;
   private final String content;
   private final List<ChildCommentResponse> childComments;
@@ -21,6 +22,7 @@ public class CommentResponseWithChildren {
   public static CommentResponseWithChildren of(Comment comment) {
     return new CommentResponseWithChildren(
         comment.getCommentId(),
+        comment.getBoardUser().getUserId(),
         comment.getBoardUser().getNickname(),
         comment.getContent(),
         comment.getChildComments().stream()
