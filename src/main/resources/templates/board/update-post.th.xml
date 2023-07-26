@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <thlogic>
   <attr sel="#main" th:object="${board}">
-    <attr sel="#board-form" th:action="@{'/board/'+${board.boardId}+'/edit'}" th:method="PUT">
+    <attr sel="#board-form" th:action="@{'/board/' + ${category} + '/' + ${board.boardId} + '/edit'}" th:method="PUT">
       <attr sel="#title" th:value="${board.title}"/>
       <attr sel="#content" th:text="${board.content}"/>
     </attr>

@@ -176,9 +176,8 @@ public class BoardController {
   }
 
   // 게시글 삭제 요청 처리
-  @DeleteMapping("/{boardId}")
-  public String deleteBoard(@PathVariable Long boardId) {
-    String category = boardService.getBoardByBoardId(boardId).getCategory();
+  @DeleteMapping("/{category}/{boardId}")
+  public String deleteBoard(@PathVariable String category, @PathVariable Long boardId) {
     // 게시글 삭제 서비스 메서드 호출
     boardService.deleteBoard(boardId);
 
@@ -186,22 +185,25 @@ public class BoardController {
   }
 
   // 게시글 수정 페이지 요청 처리
-  @GetMapping("/{boardId}/edit")
-  public String showEditForm(@PathVariable Long boardId, Model model) {
+  @GetMapping("/{category}/{boardId}/edit")
+  public String showEditForm(
+      @PathVariable String category, @PathVariable Long boardId, Model model) {
     BoardResponseWithComment board = boardService.getBoardByBoardId(boardId);
     model.addAttribute("board", board);
+    model.addAttribute("category", category);
     return "board/update-post";
   }
 
   // 게시글 수정 요청 처리
-  @PutMapping("/{boardId}/edit")
+  @PutMapping("/{category}/{boardId}/edit")
   public String editBoard(
       @AuthenticationPrincipal BoardUser boardUser,
+      @PathVariable String category,
       @PathVariable Long boardId,
       BoardRequestDto boardRequestDto) {
 
     boardService.updateBoard(boardId, boardUser.getUserId(), boardRequestDto);
 
-    return "redirect:/board/" + boardId;
+    return "redirect:/board/" + category + "/" + boardId;
   }
 }

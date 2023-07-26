@@ -56,17 +56,17 @@
   <!-- 게시글 신고 페이지 버튼 -->
   <attr sel="#report-post-btn" sec:authorize="isAuthenticated()"
         th:if="${#authentication.getPrincipal().getUserId()} != ${board.userId}"
-        th:href="@{'/board/'+${category}+'/'+ ${board.boardId} + '/report'}"/>
+        th:href="@{'/board/' + ${category} + '/' + ${board.boardId} + '/report'}"/>
 
   <!-- 게시글 수정 페이지 버튼 -->
   <attr sel="#update-post-btn" sec:authorize="isAuthenticated()"
         th:if="${#authentication.getPrincipal().getUserId()} == ${board.userId}"
-        th:href="@{'/board/' + ${board.boardId} + '/edit'}"/>
+        th:href="@{'/board/' + ${category} + '/' + ${board.boardId} + '/edit'}"/>
 
   <!-- 게시글 삭제 버튼 -->
   <attr sel="#delete-post-btn" sec:authorize="isAuthenticated()"
         th:if="${#authentication.getPrincipal().getUserId()} == ${board.userId}"
-        th:action="@{'/board/'+${board.boardId}}" th:method="DELETE"/>
+        th:action="@{'/board/' + ${category} + '/' + ${board.boardId}}" th:method="DELETE"/>
 
 
   <!--  Common Fragments -->
