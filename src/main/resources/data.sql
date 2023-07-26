@@ -7,7 +7,11 @@ values (1, now(), now(), '$2a$10$ZmEhAXrz68geKq1d24yXqOldesyWfZwkH1du49ARgR5JoOx
        (3, now(), now(), '$2a$10$tik0Pjku4CmVz6Nn5SWb6OvpPanMZjAtiCLqMH8uGinkMGf8p6dAC', 'teset3@test.com',
         'test3-black', 'test3'),
        (4, now(), now(), '$2a$10$q3sdSR5kjWuCp6f31lSJPuDHurej82Zsk4BpUs0QlupprBrTfdaDK', 'admin@admin.com', 'admin',
-        'admin')
+        'admin'),
+       (5, now(), now(), '$2a$10$ZmEhAXrz68geKq1d24yXqOldesyWfZwkH1du49ARgR5JoOxwG7E0y', 'teset5@test.com',
+        'test5-sprout', 'test5'),
+       (6, now(), now(), '$2a$10$.SBX6wFcmBEbloFLXEIvjuAKO2V9U2WKRIqdbz7k64U1r4K0hy14u', 'teset6@test.com',
+        'test6-great', 'test6')
 ;
 
 -- 1번 - 새싹회원
@@ -18,7 +22,9 @@ insert into board_authority_tb (user_id, authority)
 values ((select user_id from board_user_tb where username = 'test1'), 'SPROUT'),
        ((select user_id from board_user_tb where username = 'test2'), 'GREAT'),
        ((select user_id from board_user_tb where username = 'test3'), 'BLACK'),
-       ((select user_id from board_user_tb where username = 'admin'), 'ADMIN')
+       ((select user_id from board_user_tb where username = 'admin'), 'ADMIN'),
+       ((select user_id from board_user_tb where username = 'test5'), 'SPROUT'),
+       ((select user_id from board_user_tb where username = 'test6'), 'GREAT')
 ;
 
 -- Test 게시글
@@ -64,7 +70,7 @@ values ('sprout', now(), now(), 1, 'Sprout Board User Test Content Loren zcvkler
        ('great', now(), now(), 20, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 20',
         2, 0),
        ('sprout', now(), now(), 21, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
-        'Sprout Test Title21', 1, 1),
+        'Sprout Test Title 21', 1, 1),
        ('sprout', now(), now(), 22, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
         'Sprout Test Title 22', 1, 0),
        ('sprout', now(), now(), 23, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
@@ -100,7 +106,59 @@ values ('sprout', now(), now(), 1, 'Sprout Board User Test Content Loren zcvkler
        ('great', now(), now(), 38, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 38',
         2, 0),
        ('great', now(), now(), 39, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 39',
-        2, 0)
+        2, 0),
+       ('great', now(), now(), 40, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 40',
+        2, 0),
+       ('great', now(), now(), 41, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 41',
+        6, 0),
+       ('great', now(), now(), 42, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 42',
+        6, 0),
+       ('great', now(), now(), 43, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 43',
+        6, 0),
+       ('great', now(), now(), 44, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 44',
+        6, 1),
+       ('great', now(), now(), 45, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 45',
+        6, 1),
+       ('great', now(), now(), 46, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 46',
+        6, 1),
+       ('great', now(), now(), 47, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 47',
+        6, 0),
+       ('great', now(), now(), 48, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 48',
+        6, 0),
+       ('great', now(), now(), 49, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 49',
+        6, 0),
+       ('great', now(), now(), 50, 'Great Board User Test Content Loren zcvklerwnnkljzcxv eqwr', 'Great Test Title 50',
+        6, 0),
+       ('sprout', now(), now(), 51, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 51',
+        5, 0),
+       ('sprout', now(), now(), 52, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 52',
+        5, 0),
+       ('sprout', now(), now(), 53, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 53',
+        5, 1),
+       ('sprout', now(), now(), 54, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 54',
+        5, 0),
+       ('sprout', now(), now(), 55, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 55',
+        5, 1),
+       ('sprout', now(), now(), 56, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 56',
+        5, 0),
+       ('sprout', now(), now(), 57, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 57',
+        5, 0),
+       ('sprout', now(), now(), 58, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 58',
+        5, 0),
+       ('sprout', now(), now(), 59, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 59',
+        5, 0),
+       ('sprout', now(), now(), 60, 'Sprout Board User Test Content Loren zcvklerwnnkljzcxv eqwr',
+        'Sprout Test Title 60',
+        5, 0)
 ;
 
 insert into comment_tb
