@@ -85,21 +85,35 @@
 </table>
 
 <details>
-    <summary><strong>회원가입 실행화면</strong> </summary> - 회원가입 페이지에서 회원가입 구현 (id, username, password, email, nickName, role, createdAt, updatedAt) <br> - role은 새싹회원과 우수회원으로 구분(디폴트: 새싹회원, 게시글 수 10개 이상 우수 회원) <br> - 스크린샷첨부(이 부분 글 삭제하고 여기에 넣으면 될것 같아요!!) </details>
+    <summary><strong>회원가입 실행화면</strong> </summary> - 회원가입 페이지에서 회원가입 구현 (id, username, password, email, nickName, role, createdAt, updatedAt) <br> - role은 새싹회원과 우수회원으로 구분(디폴트: 새싹회원, 게시글 수 10개 이상 우수 회원) <br><br> <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7c73074d-122f-4b12-9db0-e73e8c0e1779" /> </details>
 <details>
-    <summary><strong>로그인 실행화면</strong> </summary> - 로그인 페이지에서 로그인 구현 (username, password) <br>
-![02_로그인](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/6325f395-560c-47dc-a7ac-21032bd2e463)
-  </details>
- <details>
-    <summary><strong>로그아웃 실행화면</strong> </summary> - 로그아웃 구현 <br> - 스크린샷첨부  </details>
+    <summary><strong>로그인 실행화면</strong> </summary>
+   - 로그인 페이지에서 로그인 구현 (username, password)
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/6325f395-560c-47dc-a7ac-21032bd2e463" />
+</details>
 <details>
-    <summary><strong>유저네임 중복체크 실행화면</strong> </summary> - 회원가입 페이지에서 동일 username 중복체크하기 <br> - 스크린샷 첨부 </details>
+  <summary><strong>회원정보 보기 실행화면</strong> </summary>
+  - 회원정보 페이지에서 username, email, role, createdAt 확인
+  <br>
+  <br>
+  <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/e0b75834-2a3c-4e07-b086-b96b9a1892e2" />
+</details>
 <details>
-    <summary><strong>회원정보 보기 실행화면</strong> </summary> - 회원정보 페이지에서 username, email, role, createdAt 확인 <br> - 스크린샷첨부  </details>
+    <summary><strong>회원 정보 수정 실행화면</strong> </summary>
+   - 회원정보 수정페이지에서 email, nickName 변경가능
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/e87994a4-cc23-4d84-acb6-eb266096667c" />
+</details>
 <details>
-    <summary><strong>회원 정보 수정 실행화면</strong> </summary> - 회원정보 수정페이지에서 email, nickName 변경가능 <br> - 스크린샷 첨부 </details>
-<details>
-    <summary><strong>비밀번호 수정 실행화면</strong> </summary> - 비밀번호 수정 페이지에서 비밀번호 수정 구현 <br> - 스크린샷첨부  </details>
+    <summary><strong>비밀번호 수정 실행화면</strong> </summary>
+   - 비밀번호 수정 페이지에서 비밀번호 수정 구현
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/60425058-d154-4f97-bc74-847ed7614ea0" />
+</details>
 
 ### 3-2. 게시판 기능
 
@@ -122,30 +136,47 @@
 </table>
 
 <details>
-    <summary><strong>게시글 카테고리 실행화면</strong> </summary> - 새싹회원 게시판, 우수회원 게시판 구현 (게시판은 2개이지만 하나의 화면을 공유해서 사용하고 카테고리로 구분함) <br> - ![02_메인페이지](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7f20a28d-e9e8-4228-9660-128ac2a74649) </details>
-<details>
-    <summary><strong>게시글 쓰기 실행화면</strong> </summary> - 게시글 쓰기 페이지 에서 권한(새싹, 우수)에 따라 다른 게시판에 글이 적어짐 (~썸머노트 적용~) <br> - ![05_게시글작성](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/824f2955-91bc-4627-b548-9ee3e970a0dc)  </details>
-<details>
-    <summary><strong>게시글 페이징 실행화면</strong> </summary> - 게시글 목록보기 페이지에서 페이지당 6개 게시글 보여야 함, 게시글은 Grid 형식으로 3개씩 카드(Card) 배치 <br> - ![11_페이징](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/a4483939-723f-42f0-8b01-a8b3889b6b47)  </details>
-<details>
-    <summary><strong>게시글 검색 실행화면</strong> </summary> - 게시글 목록보기 페이지에서 작성자(nickName), 제목(title), 내용(content)로 검색 가능 <br> - 스크린샷 첨부 </details>
-<details>
-    <summary><strong>게시글 상세보기 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 id, title, content, nickName, 댓글의 comment 리스트(id, comment, 댓글의 작성자 nickName) 이 화면에 보여야 함. 게시글 삭제버튼과 수정버
-    튼 보여야 함(본인이 적은 글에 대해서만), 댓글 삭제버튼이 보여야함(본인이 적은 댓글에 대해서만) <br> 
-- ![12_게시글상세](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/a280a8f9-672f-4e0d-9567-52e70755a306) 
-- ![07_댓글작성](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/2e740f3b-adcb-4724-a7ee-c3c518c9f7cd)
-- ![08_대댓글작성](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/2eff2316-a58f-4530-a3e1-d441e3c8281f)
-- ![09_댓글_본인것만_삭제가능](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/82031787-b706-465b-a50d-4ba8106b9b0a)
-- ![10_대댓글_본인것만_삭제가능](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/21b81371-dc33-49fe-affe-806d003a483e) 
-</details>
-    <details>
-<details>
-    <summary><strong>게시글 수정 실행화면</strong> </summary> - 게시글 수정하기 페이지에서 title, content 수정 가능 <br>
-- ![06_게시글수정](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/352e9ce8-eeb0-49eb-b733-8443baf20d79) 
+    <summary><strong>게시글 카테고리 실행화면</strong> </summary>
+   - 새싹회원 게시판, 우수회원 게시판 구현
+   <br> (게시판은 2개이지만 하나의 화면을 공유해서 사용하고 카테고리로 구분함)
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7f20a28d-e9e8-4228-9660-128ac2a74649" />
 </details>
 <details>
-    <summary><strong>게시글 신고 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 게시글 신고가능 (형태 : 욕설, 음란, 비방) <br>
-- ![13_게시글신고](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/6a69633b-ab3a-48ad-b2bf-3e4258af5295)  </details>
+    <summary><strong>게시글 쓰기 실행화면</strong> </summary>
+   - 게시글 쓰기 페이지 에서 권한(새싹, 우수)에 따라 다른 게시판에 글이 적어짐
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/4cb3339b-fd2b-4a2a-afed-f671dc8faa0e" />
+</details>
+<details>
+    <summary><strong>게시글 상세보기 실행화면</strong> </summary>
+   - 게시글 상세보기 페이지에서 id, title, content, nickName, 댓글의 comment 리스트(id, comment, 댓글의 작성자 nickName) 이 화면에 보여야 함.
+   - 게시글 삭제버튼과 수정버튼 보여야 함(본인이 적은 글에 대해서만)
+   - 댓글 삭제버튼이 보여야함(본인이 적은 댓글에 대해서만)
+   <br>
+   <br> 
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/0ec05f65-1d2b-47b0-889a-dd34a11b0ea0" />
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/fd793f9e-44ab-462b-b108-47a6995019c9" /> 
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/f59e34e6-36d6-44c9-b510-5c7695cf1db9" />
+</details>
+
+<details>
+  <summary><strong>게시글 수정 실행화면</strong> </summary> - 게시글 수정하기 페이지에서 title, content 수정 가능 <br>
+  - <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/85f2415c-7f67-44e7-b9e8-ac4069875361"/>
+</details>
+<details>
+    <summary><strong>게시글 신고 실행화면</strong> </summary>
+   - 게시글 상세보기 페이지에서 게시글 신고가능 (형태 : 욕설, 음란, 비방)
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7a7b82fc-ccef-44b8-915a-3fa2a27a4542"/>
+</details>
 
 ### 3-3. 댓글 기능
 
@@ -153,16 +184,18 @@
   <tr>
     <td>댓글 쓰기</td>
     <td>댓글 삭제</td>
-    <td>스케쥴러 등극</td>
   </tr>
 </table>
 
 <details>
-    <summary><strong>댓글 쓰기 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 댓글 쓰기 50자이내, 댓글에 댓글을 작성할 수 있음. 대댓글 기능 구현(depth 1까지) <br> - 스크린샷첨부(이 부분 글 삭제하고 여기에 넣으면 될것 같아요!!) </details>
-<details>
-    <summary><strong>댓글 삭제 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 댓글 삭제가능(댓글은 수정은 없음) <br> - 스크린샷첨부  </details>
-<details>
-    <summary><strong>스케쥴러 등극 실행화면</strong> </summary> - @Schedule 을 사용하여, 1분에 한번씩 게시글 수가 10개인데, 우수회원이 아닌 새싹회원 등급 자동 변경 <br> - 스크린샷 첨부 </details>
+  <summary><strong>댓글 쓰기 실행화면</strong> </summary>
+  - 게시글 상세보기 페이지에서 댓글 쓰기 50자이내, 댓글에 댓글을 작성할 수 있음. 대댓글 기능 구현(depth 1까지)
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/02e41c9f-79f1-4f0d-9f45-8d86af42db9c" />
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/14f84e02-98a4-4fbb-b225-92eb0be23bd8" />
+</details>
+
 
 ### 3-4. 관리자 기능
 
@@ -178,19 +211,6 @@
     <td>관리자 블랙리스트 고객 해제</td>
   </tr>
 </table>
-
-<details>
-    <summary><strong>관리자 회원 권환 관리 실행화면</strong> </summary> - 회원의 role 변경 가능 <br> - 스크린샷첨부(이 부분 글 삭제하고 여기에 넣으면 될것 같아요!!) </details>
-<details>
-    <summary><strong>관리자 회원 Email 전송 관리 실행화면</strong> </summary> - 회원에게 email 전송 가능 <br> - 스크린샷첨부  </details>
-<details>
-    <summary><strong>관리자 게시글 CRUD 실행화면</strong> </summary> - 게시글 목록보기, 삭제하기, 숨기기/보이기, 블랙리스트(욕설) 등록 가능 <br> - 스크린샷 첨부 </details>
-<details>
-    <summary><strong>관리자 게시글 통계 관리 실행화면</strong> </summary> - 유저의 게시글 수, 댓글 수를 볼 수 있고, 댓글수가 많은 유저 순, 게시글수가 많은 유저순으로 정렬 가능 <br> - 스크린샷첨부  </details>
-<details>
-    <summary><strong>관리자 블랙리스트 고객 등록 실행화면</strong> </summary> - 게시글 신고목록 페이지 구현, 해당 페이지에서 블랙리스트 고객 등록 가능 <br> - 스크린샷 첨부 </details>
-<details>
-    <summary><strong>관리자 블랙리스트 고객 해제 실행화면</strong> </summary> - 게시글 신고목록 페이지 구현, 해당 페이지에서 블랙리스트 고객 해제 가능 <br> - 스크린샷첨부  </details>
 
 ## 4. 구조 및 설계
 
