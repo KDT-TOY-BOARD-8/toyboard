@@ -64,7 +64,7 @@
 
   <!-- 댓글 작성 버튼 -->
   <attr sel="#post-comment-form" sec:authorize="isAuthenticated()"
-        th:action="@{'/board/'+ ${board.boardId} + '/comment/new'}" th:method="POST"/>
+        th:action="@{'/board/' + ${category} + '/' + ${board.boardId} + '/comment'}" th:method="POST"/>
 
   <!--  Common Fragments -->
   <attr sel="#head" th:replace="common/head :: head"/>
