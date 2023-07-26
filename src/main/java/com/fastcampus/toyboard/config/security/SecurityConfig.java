@@ -27,7 +27,7 @@ public class SecurityConfig {
   @Bean
   public RoleHierarchy roleHierarchy() {
     RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
-    roleHierarchy.setHierarchy("ADMIN > GREAT > SPROUT > BLACK");
+    roleHierarchy.setHierarchy("GREAT > SPROUT > BLACK");
     return roleHierarchy;
   }
 
@@ -47,8 +47,10 @@ public class SecurityConfig {
                 .permitAll()
                 .antMatchers("/", "/login", "/sign-up", "/login-failed")
                 .permitAll()
-                .antMatchers("/board", "/board/**", "/user","/user/**")
-                .hasAnyAuthority("SPROUT", "GREAT", "ADMIN")
+                .antMatchers("/board/sprout", "/board/sprout/**")
+                .hasAnyAuthority("SPROUT", "GREAT")
+                .antMatchers("/board/great", "/board/great/**")
+                .hasAnyAuthority("GREAT")
                 .anyRequest()
                 .authenticated());
 
