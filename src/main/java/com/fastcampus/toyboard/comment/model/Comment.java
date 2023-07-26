@@ -1,7 +1,7 @@
 package com.fastcampus.toyboard.comment.model;
 
 import com.fastcampus.toyboard.board.model.Board;
-import com.fastcampus.toyboard.common.BaseTimeEntity;
+import com.fastcampus.toyboard.common.jpa.BaseTimeEntity;
 import com.fastcampus.toyboard.user.model.BoardUser;
 import java.util.List;
 import javax.persistence.*;

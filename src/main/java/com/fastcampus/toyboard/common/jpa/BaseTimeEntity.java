@@ -1,4 +1,4 @@
-package com.fastcampus.toyboard.common;
+package com.fastcampus.toyboard.common.jpa;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

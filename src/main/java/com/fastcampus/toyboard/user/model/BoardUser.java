@@ -1,6 +1,6 @@
 package com.fastcampus.toyboard.user.model;
 
-import com.fastcampus.toyboard.common.BaseTimeEntity;
+import com.fastcampus.toyboard.common.jpa.BaseTimeEntity;
 import java.util.Set;
 import javax.persistence.*;
 

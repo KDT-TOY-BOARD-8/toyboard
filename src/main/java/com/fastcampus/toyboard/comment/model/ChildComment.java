@@ -1,10 +1,9 @@
 package com.fastcampus.toyboard.comment.model;
 
-import com.fastcampus.toyboard.common.BaseTimeEntity;
+import com.fastcampus.toyboard.common.jpa.BaseTimeEntity;
 import com.fastcampus.toyboard.user.model.BoardUser;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 @Entity(name = "child_comment_tb")
