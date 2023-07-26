@@ -120,24 +120,30 @@
 </table>
 
 <details>
-    <summary><strong>게시글 카테고리 실행화면</strong> </summary> - 새싹회원 게시판, 우수회원 게시판 구현 (게시판은 2개이지만 하나의 화면을 공유해서 사용하고 카테고리로 구분함) <br> - 스크린샷첨부(이 부분 글 삭제하고 여기에 넣으면 될것 같아요!!) </details>
+    <summary><strong>게시글 카테고리 실행화면</strong> </summary> - 새싹회원 게시판, 우수회원 게시판 구현 (게시판은 2개이지만 하나의 화면을 공유해서 사용하고 카테고리로 구분함) <br> - ![02_메인페이지](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7f20a28d-e9e8-4228-9660-128ac2a74649) </details>
 <details>
-    <summary><strong>게시글 쓰기 실행화면</strong> </summary> - 게시글 쓰기 페이지 에서 권한(새싹, 우수)에 따라 다른 게시판에 글이 적어짐 (썸머노트 적용) <br> - 스크린샷첨부  </details>
+    <summary><strong>게시글 쓰기 실행화면</strong> </summary> - 게시글 쓰기 페이지 에서 권한(새싹, 우수)에 따라 다른 게시판에 글이 적어짐 (~썸머노트 적용~) <br> - ![05_게시글작성](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/824f2955-91bc-4627-b548-9ee3e970a0dc)  </details>
 <details>
-    <summary><strong>게시글 목록보기 실행화면</strong> </summary> - 게시글 목록보기 페이지에서 게시글 목록보기 (id, title, content, thumbnail(게시글 사진), user의 nickName 화면에 보여야 함, content내용을 화면에 2줄이 넘어가면 Ellipsis(...)으로 스타일 변경, 정렬은 id순 Desc <br> - 스크린샷 첨부 </details>
-<details>
-    <summary><strong>게시글 페이징 실행화면</strong> </summary> - 게시글 목록보기 페이지에서 페이지당 6개 게시글 보여야 함, 게시글은 Grid 형식으로 3개씩 카드(Card) 배치 <br> - 스크린샷첨부  </details>
+    <summary><strong>게시글 페이징 실행화면</strong> </summary> - 게시글 목록보기 페이지에서 페이지당 6개 게시글 보여야 함, 게시글은 Grid 형식으로 3개씩 카드(Card) 배치 <br> - ![11_페이징](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/a4483939-723f-42f0-8b01-a8b3889b6b47)  </details>
 <details>
     <summary><strong>게시글 검색 실행화면</strong> </summary> - 게시글 목록보기 페이지에서 작성자(nickName), 제목(title), 내용(content)로 검색 가능 <br> - 스크린샷 첨부 </details>
 <details>
     <summary><strong>게시글 상세보기 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 id, title, content, nickName, 댓글의 comment 리스트(id, comment, 댓글의 작성자 nickName) 이 화면에 보여야 함. 게시글 삭제버튼과 수정버
-    튼 보여야 함(본인이 적은 글에 대해서만), 댓글 삭제버튼이 보여야함(본인이 적은 댓글에 대해서만) <br> - 스크린샷첨부  </details>
+    튼 보여야 함(본인이 적은 글에 대해서만), 댓글 삭제버튼이 보여야함(본인이 적은 댓글에 대해서만) <br> 
+- ![12_게시글상세](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/a280a8f9-672f-4e0d-9567-52e70755a306) 
+- ![07_댓글작성](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/2e740f3b-adcb-4724-a7ee-c3c518c9f7cd)
+- ![08_대댓글작성](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/2eff2316-a58f-4530-a3e1-d441e3c8281f)
+- ![09_댓글_본인것만_삭제가능](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/82031787-b706-465b-a50d-4ba8106b9b0a)
+- ![10_대댓글_본인것만_삭제가능](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/21b81371-dc33-49fe-affe-806d003a483e) 
+</details>
     <details>
-    <summary><strong>게시글 삭제 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 본인이 적은 게시글만 삭제가능 <br> - 스크린샷첨부  </details>
 <details>
-    <summary><strong>게시글 수정 실행화면</strong> </summary> - 게시글 수정하기 페이지에서 title, content 수정 가능 <br> - 스크린샷 첨부 </details>
+    <summary><strong>게시글 수정 실행화면</strong> </summary> - 게시글 수정하기 페이지에서 title, content 수정 가능 <br>
+- ![06_게시글수정](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/352e9ce8-eeb0-49eb-b733-8443baf20d79) 
+</details>
 <details>
-    <summary><strong>게시글 신고 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 게시글 신고가능 (형태 : 욕설, 음란, 비방) <br> - 스크린샷첨부  </details>
+    <summary><strong>게시글 신고 실행화면</strong> </summary> - 게시글 상세보기 페이지에서 게시글 신고가능 (형태 : 욕설, 음란, 비방) <br>
+- ![13_게시글신고](https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/6a69633b-ab3a-48ad-b2bf-3e4258af5295)  </details>
 
 ### 3-3. 댓글 기능
 
