@@ -85,7 +85,14 @@
 </table>
 
 <details>
-    <summary><strong>회원가입 실행화면</strong> </summary> - 회원가입 페이지에서 회원가입 구현 (id, username, password, email, nickName, role, createdAt, updatedAt) <br> - role은 새싹회원과 우수회원으로 구분(디폴트: 새싹회원, 게시글 수 10개 이상 우수 회원) <br><br> <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7c73074d-122f-4b12-9db0-e73e8c0e1779" /> </details>
+    <summary><strong>회원가입 실행화면</strong> </summary>
+   - 회원가입 페이지에서 회원가입 구현 (id, username, password, email, nickName, role, createdAt, updatedAt)
+   <br>
+   - role은 새싹회원과 우수회원으로 구분(디폴트: 새싹회원, 게시글 수 10개 이상 우수 회원)
+   <br>
+   <br>
+   <img src="https://github.com/KDT-TOY-BOARD-8/toyboard-user/assets/115003898/7c73074d-122f-4b12-9db0-e73e8c0e1779" />
+</details>
 <details>
     <summary><strong>로그인 실행화면</strong> </summary>
    - 로그인 페이지에서 로그인 구현 (username, password)
