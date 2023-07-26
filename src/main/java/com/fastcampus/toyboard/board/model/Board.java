@@ -26,7 +26,7 @@ public class Board extends BaseTimeEntity {
 
   @Column private String category; // 게시판 카테고리
 
-  @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   private List<Comment> comments; // 댓글
 
   private Boolean hide;

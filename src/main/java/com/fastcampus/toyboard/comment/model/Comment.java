@@ -19,7 +19,7 @@ public class Comment extends BaseTimeEntity {
   @Setter @Column private String content;
 
   @Setter
-  @OneToMany(mappedBy = "parentComment", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "parentComment", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   private List<ChildComment> childComments;
 
   @ManyToOne

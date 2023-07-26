@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ChildCommentController {
   private final ChildCommentService childCommentService;
 
-  @PostMapping("/board/{boardId}/comment/{parentCommentId}/child-comment")
+  @PostMapping("/board/{category}/{boardId}/comment/{parentCommentId}/child-comment")
   public String postNewChildComment(
       @AuthenticationPrincipal BoardUser boardUser,
+      @PathVariable String category,
       @PathVariable Long boardId,
       @PathVariable Long parentCommentId,
       ChildCommentRequestDto childCommentRequestDto) {
@@ -25,14 +26,19 @@ public class ChildCommentController {
     childCommentService.saveNewChildComment(
         boardUser.getUserId(), parentCommentId, childCommentRequestDto);
 
-    return "redirect:/board/" + boardId;
+    return "redirect:/board/" + category + "/" + boardId;
   }
 
-  @DeleteMapping("/board/{boardId}/child-comment/{childCommentId}")
-  public String deleteChildComment(@PathVariable Long boardId, @PathVariable Long childCommentId) {
+  @DeleteMapping(
+      "/board/{category}/{boardId}/comment/{parentCommentId}/child-comment/{childCommentId}")
+  public String deleteChildComment(
+      @PathVariable String category,
+      @PathVariable Long boardId,
+      @PathVariable Long parentCommentId,
+      @PathVariable Long childCommentId) {
 
-    childCommentService.deleteChildCommentById(childCommentId);
+    childCommentService.deleteChildCommentById(parentCommentId, childCommentId);
 
-    return "redirect:/board/" + boardId;
+    return "redirect:/board/" + category + "/" + boardId;
   }
 }

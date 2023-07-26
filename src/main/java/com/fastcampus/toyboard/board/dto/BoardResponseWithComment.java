@@ -20,7 +20,7 @@ public class BoardResponseWithComment {
   private String content;
   private String category;
   private LocalDateTime createdAt;
-  private List<CommentResponseWithChildren> commentResponseWithChildren;
+  private List<CommentResponseWithChildren> comments;
 
   public static BoardResponseWithComment of(Board board) {
     return new BoardResponseWithComment(

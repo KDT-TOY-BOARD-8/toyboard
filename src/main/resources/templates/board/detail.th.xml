@@ -29,9 +29,9 @@
                     <attr sel="div/h6.reply-comment-nickname" th:text="${childComment.nickname}"/>
                     <attr sel="span.reply-comment-content" th:text="${childComment.content}"/>
                     <!-- 대댓글 삭제 버튼 -->
-                    <attr sel="#delete-child-comment-btn" sec:authorize="isAuthenticated()"
+                    <attr sel=".delete-reply-comment-btn" sec:authorize="isAuthenticated()"
                           th:if="${#authentication.getPrincipal().getUserId()} == ${childComment.userId}"
-                          th:action="@{'/board/'+${board.boardId} +'/comment/' + ${comment.commentId} + '/child-comment/'}"
+                          th:action="@{'/board/'+ ${category} + '/' + ${board.boardId} +'/comment/' + ${comment.commentId} + '/child-comment/' + ${childComment.childCommentId}}"
                           th:method="DELETE"/>
                   </attr>
                 </attr>
@@ -40,7 +40,7 @@
 
             <!-- 대댓글 작성 폼 -->
             <attr sel="form.child-comment-form" sec:authorize="isAuthenticated()"
-                  th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId} + '/child-comment/new'}"
+                  th:action="@{'/board/' + ${category} + '/' + ${board.boardId} + '/comment/' + ${comment.commentId} + '/child-comment'}"
                   th:method="POST"/>
           </attr>
 
