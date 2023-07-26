@@ -65,19 +65,19 @@
         <!-- ======= Comments ======= -->
         <section id="comment-section">
 
-          <!-- Comment Title -->
+          <!-- Comment Total Count -->
           <div class="row p-5">
             <h5 id="comment-total" class="comments">2 Comments</h5>
           </div>
 
           <!-- Each Comment -->
-          <ul id="all-comments-row" class="comments">
-            <li class="comment d-flex mb-4">
-              <div class="row comment-body flex-grow-1 ms-2 ms-sm-3 justify-content-evenly bg-light-subtle">
+          <ul class="all-comments-row parent-comments">
+            <li class="parent-comment d-flex mb-4">
+              <div class="row parent-comment-body flex-grow-1 ms-2 ms-sm-3 justify-content-evenly bg-light-subtle">
                 <div class="col-md-auto comment-meta d-flex align-items-baseline">
-                  <h6 class="child-comment-writer me-2">Jordan Singer</h6>
+                  <h6 class="parent-comment-writer me-2">Jordan Singer</h6>
                 </div>
-                <div class="col-lg-8 comment-content">
+                <div class="col-lg-8 parent-comment-content">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non minima ipsum at amet doloremque
                   qui magni,
                   placeat deserunt pariatur itaque laudantium impedit aliquam eligendi repellendus excepturi
@@ -92,20 +92,21 @@
                 </div>
 
                 <!-- Child Comments Start -->
-                <div class="row children-comment bg-light p-3 mt-3 rounded">
+                <div class="row reply-comments bg-light p-3 mt-3 rounded">
 
                   <div class="row p-2">
-                    <h6 class="children-count mb-4 text-muted text-uppercase">2 replies</h6>
+                    <h6 class="reply-count mb-4 text-muted text-uppercase">2 replies</h6>
                   </div>
 
-                  <ul id="children-comment-list">
-                    <li class="reply d-flex mb-4">
-                      <div class="row children-comment-body flex-grow-1 ms-2 ms-sm-3">
+                  <ul class="reply-comment-list">
+                    <li class="reply-comment d-flex mb-4">
+                      <div class="row reply-comment-body flex-grow-1 ms-2 ms-sm-3">
                         <div class="col-md-auto reply-meta d-flex align-items-baseline">
-                          <h6 class="children-comment-nickname mb-0 me-2">Brandon Smith</h6>
+                          <h6 class="reply-comment-nickname mb-0 me-2">Brandon Smith</h6>
                         </div>
                         <div class="col-lg-8 reply-body">
-                          <span class="children-comment-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</span>
+                          <span
+                              class="reply-comment-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</span>
                         </div>
                         <div class="col-md-auto p-3">
                           <form id="delete-child-comment-btn">
@@ -118,9 +119,9 @@
                   </ul>
                 </div>
 
-                <div class="row comment-replies bg-light p-3 mt-3 rounded">
+                <div class="row bg-light p-3 mt-3 rounded">
                   <!-- Child Comment Form -->
-                  <form id="child-comment-form" class="row justify-content-center mt-5">
+                  <form class="child-comment-form row justify-content-center mt-5">
                     <div class="reply d-flex">
                       <div class="flex-grow-1 ms-2 ms-sm-3">
                         <div class="reply-meta d-flex align-items-baseline">
@@ -141,26 +142,6 @@
 
 
               </div> <!-- End Child Comments -->
-            </li>
-
-
-            <li class="comment d-flex">
-              <div class="flex-shrink-0">
-                <div class="avatar avatar-sm rounded-circle">
-                  <img class="avatar-img img-fluid" src="/assets/img/person-2.jpg" alt="">
-                </div>
-              </div>
-              <div class="flex-shrink-1 ms-2 ms-sm-3">
-                <div class="comment-meta d-flex">
-                  <h6 class="me-2">Santiago Roberts</h6>
-                  <span class="text-muted">4d</span>
-                </div>
-                <div class="comment-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laborum in corrupti dolorum, quas
-                  delectus
-                  nobis porro accusantium molestias sequi.
-                </div>
-              </div>
             </li>
           </ul><!-- End Comments -->
 

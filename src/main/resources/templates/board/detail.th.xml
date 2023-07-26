@@ -7,43 +7,49 @@
     <attr sel="#board-content" th:text="${board.content}"/>
 
     <attr sel="#comment-section">
-      <attr sel="#comment-total" th:if="${!comments.isEmpty}" th:text="${comments.size} + ' Comments'"/>
-      <attr sel="#all-comments-row" th:if="${!comments.isEmpty}" th:remove="'all-but-first'">
-        <attr sel="li[0]" th:each="comment : ${comments}">
-          <attr sel="div.comment-body">
-            <attr sel="div.comment-meta/h6" th:text="${comment.nickname}"/>
-            <attr sel="div.comment-content" th:text="${comment.content}"/>
+      <attr sel="#comment-total" th:text="${comments.size} + ' Comments'"/>
+      <attr sel="ul.all-comments-row" th:remove="all-but-first">
+        <attr sel="li.parent-comment[0]" th:each="comment : ${comments}">
+          <attr sel="div.parent-comment-body">
+            <attr sel="h6.parent-comment-writer" th:text="${comment.nickname}"/>
+            <attr sel="div.parent-comment-content" th:text="${comment.content}"/>
 
             <!-- 댓글 삭제 버튼 -->
             <attr sel=".delete-comment-btn" sec:authorize="isAuthenticated()"
                   th:if="${#authentication.getPrincipal().getUserId()} == ${comment.userId}"
-                  th:action="@{'/board/'+ ${category} +'/' +${board.boardId} + '/comment/' + ${comment.commentId}}" th:method="DELETE"/>
+                  th:action="@{'/board/'+ ${category} +'/' +${board.boardId} + '/comment/' + ${comment.commentId}}"
+                  th:method="DELETE"/>
 
-            <attr sel="#child-comment-form" sec:authorize="isAuthenticated()"
-                  th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId} + '/child-comment/new'}"
-                  th:method="POST"/>
+            <attr sel="div.reply-comments" th:if="${!#arrays.isEmpty(comment.childComments)}">
+              <attr sel="h6.reply-count" th:text="${comment.childComments.size + ' Replies'}"/>
+              <attr sel="ul.reply-comment-list" th:remove="all-but-first">
+                <attr sel="li.reply-comment[0]" th:each="childComment : ${comment.childComments}">
+                  <attr sel="div.reply-comment-body">
 
-            <attr sel="div.children-comment" th:if="${!comment.childComments.isEmpty}">
-              <attr sel="h6" th:text="${comment.childComments.size + ' Replies'}"/>
-              <attr sel="#children-comment-list" th:if="${!comment.childComments.isEmpty}" th:remove="all-but-first">
-                <!--                <attr sel="li[0]" th:if="${!comment.childComments.isEmpty and childComment != null}"-->
-                <!--                      th:each="childComment : ${comment.getChildComments()}">-->
-                <!--                  <attr sel="h6.children-comment-nickname" th:text="${childCommentStat.current}"/>-->
-                <!--                  <attr sel="span.text-muted" th:text="''"/>-->
-                <!--                  <attr sel="span.children-comment-content" th:text="${childCommentStat.index}"/>-->
-                <!--                  &lt;!&ndash; 대댓글 삭제 버튼 &ndash;&gt;-->
-                <!--                  <attr sel="#delete-child-comment-btn" sec:authorize="isAuthenticated()"-->
-                <!--                        th:if="${#authentication.getPrincipal().getNickname()} == ${board.nickname}"-->
-                <!--                        th:action="@{'/board/'+${board.boardId} +'/comment/' + ${comment.commentId} + '/child-comment/'}"-->
-                <!--                        th:method="DELETE"/>-->
-                <!--                </attr>-->
+                    <attr sel="div/h6.reply-comment-nickname" th:text="${childComment.nickname}"/>
+                    <attr sel="span.reply-comment-content" th:text="${childComment.content}"/>
+                    <!-- 대댓글 삭제 버튼 -->
+                    <attr sel="#delete-child-comment-btn" sec:authorize="isAuthenticated()"
+                          th:if="${#authentication.getPrincipal().getUserId()} == ${childComment.userId}"
+                          th:action="@{'/board/'+${board.boardId} +'/comment/' + ${comment.commentId} + '/child-comment/'}"
+                          th:method="DELETE"/>
+                  </attr>
+                </attr>
               </attr>
             </attr>
+
+            <!-- 대댓글 작성 폼 -->
+            <attr sel="form.child-comment-form" sec:authorize="isAuthenticated()"
+                  th:action="@{'/board/'+${board.boardId} + '/comment/' + ${comment.commentId} + '/child-comment/new'}"
+                  th:method="POST"/>
           </attr>
 
 
         </attr>
       </attr>
+      <!-- 댓글 작성 버튼 -->
+      <attr sel="#post-comment-form" sec:authorize="isAuthenticated()"
+            th:action="@{'/board/' + ${category} + '/' + ${board.boardId} + '/comment'}" th:method="POST"/>
     </attr>
   </attr>
 
@@ -62,9 +68,6 @@
         th:if="${#authentication.getPrincipal().getUserId()} == ${board.userId}"
         th:action="@{'/board/'+${board.boardId}}" th:method="DELETE"/>
 
-  <!-- 댓글 작성 버튼 -->
-  <attr sel="#post-comment-form" sec:authorize="isAuthenticated()"
-        th:action="@{'/board/' + ${category} + '/' + ${board.boardId} + '/comment'}" th:method="POST"/>
 
   <!--  Common Fragments -->
   <attr sel="#head" th:replace="common/head :: head"/>
